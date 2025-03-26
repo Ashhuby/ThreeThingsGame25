@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0j3smb5c4lrd"]
+
+[ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_qxc8s"]
+[ext_resource type="Script" path="res://Script/Hazards/Objects/BaseHazard.cs" id="1_wutem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgjju"]
+size = Vector2(42, 42)
+
+[node name="BaseHazard" type="Node2D"]
+position = Vector2(610, 336)
+script = ExtResource("1_wutem")
+
+[node name="HazardSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.382813, 0.382813)
+texture = ExtResource("1_qxc8s")
+
+[node name="HazardHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardHitBox"]
+shape = SubResource("RectangleShape2D_sgjju")

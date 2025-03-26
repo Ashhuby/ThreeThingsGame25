@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccqynjj7jgkra"]
+
+[ext_resource type="Script" path="res://Script/Hazards/Spawner/ObjectSpawner.cs" id="1_4h41f"]
+[ext_resource type="PackedScene" uid="uid://d0j3smb5c4lrd" path="res://Scene/Hazards/Objects/sBaseHazard.tscn" id="2_t1s8s"]
+
+[node name="ObjectSpawner" type="Node2D" node_paths=PackedStringArray("SpawnPoints")]
+position = Vector2(1216, 0)
+script = ExtResource("1_4h41f")
+Object = ExtResource("2_t1s8s")
+SpawnPoints = [NodePath("SpawnPoints/Point1"), NodePath("SpawnPoints/Point2"), NodePath("SpawnPoints/Point3")]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(192, 256)
+
+[node name="Point1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-128, -64)
+
+[node name="Point2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-128, 128)
+
+[node name="Point3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-128, 320)
