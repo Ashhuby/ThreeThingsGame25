@@ -18,8 +18,6 @@ bg_color = Color(0.326981, 0.365932, 0.192136, 1)
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_g444i")]
-
 [node name="BackGround" type="Node2D" parent="."]
 
 [node name="BG" type="Panel" parent="BackGround"]
@@ -58,3 +56,12 @@ eps = 1.0
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("2_y0gb7")]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel") instance=ExtResource("1_g444i")]
+scoreLabel = NodePath("Score")
+
+[node name="Score" type="Label" parent="GameManager"]
+offset_left = 182.0
+offset_top = 31.0
+offset_right = 930.0
+offset_bottom = 66.0
