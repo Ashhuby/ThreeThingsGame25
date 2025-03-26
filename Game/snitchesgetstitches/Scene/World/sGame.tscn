@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://caa6oxgxvdafd"]
+[gd_scene load_steps=8 format=3 uid="uid://caa6oxgxvdafd"]
 
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_6iikx"]
+[ext_resource type="PackedScene" uid="uid://c42l8xnf76hvb" path="res://Scene/World/Manager/sGameManager.tscn" id="1_g444i"]
 [ext_resource type="PackedScene" uid="uid://qyel3mk7mm5q" path="res://Scene/Player/sPlayer.tscn" id="2_y0gb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01q13"]
@@ -17,7 +18,7 @@ bg_color = Color(0.326981, 0.365932, 0.192136, 1)
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" parent="." instance=ExtResource("1_g444i")]
 
 [node name="BackGround" type="Node2D" parent="."]
 
@@ -52,6 +53,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_57ggf")
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="ObjectSpawner" parent="Spawner" instance=ExtResource("1_6iikx")]
+eps = 1.0
 
 [node name="Player" type="Node2D" parent="."]
 

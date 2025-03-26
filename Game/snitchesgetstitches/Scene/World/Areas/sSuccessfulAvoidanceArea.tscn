@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqyuhqhd5x4u5"]
+
+[ext_resource type="Script" path="res://Script/World/Areas/SuccessfulAvoidanceArea.cs" id="1_eic6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbkbw"]
+size = Vector2(98, 788)
+
+[node name="SuccessfulAvoidanceArea" type="Area2D"]
+script = ExtResource("1_eic6c")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-46, 350)
+shape = SubResource("RectangleShape2D_kbkbw")

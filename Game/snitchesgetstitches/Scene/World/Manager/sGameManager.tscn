@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c42l8xnf76hvb"]
+
+[ext_resource type="Script" path="res://Script/World/Manager/GameManager.cs" id="1_ih75k"]
+[ext_resource type="PackedScene" uid="uid://dqyuhqhd5x4u5" path="res://Scene/World/Areas/sSuccessfulAvoidanceArea.tscn" id="2_nfb1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wb0l"]
+size = Vector2(98, 742)
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_ih75k")
+
+[node name="SuccessfulAvoidanceArea" parent="." instance=ExtResource("2_nfb1a")]
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuccessfulAvoidanceArea"]
+position = Vector2(-39, 361)
+shape = SubResource("RectangleShape2D_0wb0l")
+
+[connection signal="area_entered" from="SuccessfulAvoidanceArea" to="." method="_on_successful_avoidance_area_area_entered"]

@@ -1,42 +1,88 @@
 using Godot;
 using System;
 
-public partial class Player : Node2D
+public partial class Player : CharacterBody2D
 {
+	#region Variables
+	[Export] float JumpStrength = -1500;
+	[Export] float initialGravity = 3000;
+	float Gravity = 3000;
+	[Export] float gravityMultiplier = 1;
+	#endregion
+
+	[Export] float maxJumpHeight = 200;
+	[Export] Vector2 startingPostion = new Vector2(101, 542);
 	[Export] Sprite2D RunningSprite;
 	[Export] Sprite2D CrounchingSprite;
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		RunningSprite.Visible = true;
 		CrounchingSprite.Visible = false;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		if(Input.IsActionPressed("Crouch"))
+		
+		if(Input.IsActionPressed("Crouch") && Position.Y == startingPostion.Y)
 		{
-			RunningSprite.Visible = false;
-			CrounchingSprite.Visible = true;
+			Crouch();
 		}
 		if(Input.IsActionJustReleased("Crouch"))
 		{
-			RunningSprite.Visible = true;
-			CrounchingSprite.Visible = false;
+			Stand();
 		}
 
-		if(Input.IsActionJustPressed("Jump"))
+		
+		Vector2 velocity = Velocity;
+
+		if(Position.Y == startingPostion.Y)
 		{
-			Jump((float)delta);
+			gravityMultiplier = 1;
+			Gravity = 0;
 		}
-	}
+		else
+		{
+			Gravity = initialGravity;
+		}
 
-	private void Jump(float delta)
+		//Apply gravity
+		velocity.Y += (float)delta * Gravity * gravityMultiplier; 
+
+		//Handle jumping
+		if(Input.IsActionJustPressed("Jump") && Position.Y == startingPostion.Y)
+		{
+			GD.Print("Jumping");
+			Stand();
+			velocity.Y = JumpStrength; // Ensure jump applies correctly
+		}
+
+		//Prevent player from falling below the starting position
+		if (Position.Y > startingPostion.Y)
+		{
+			Position = new Vector2(Position.X, startingPostion.Y);
+			velocity.Y = 0; //Stop downward movement
+		}
+
+		// Prevent player from jumping too high
+		if (Position.Y < maxJumpHeight)
+		{
+			Position = new Vector2(Position.X, maxJumpHeight);
+			velocity.Y = 0; // Stop upward movement
+			gravityMultiplier = 3;
+		}
+
+		Velocity = velocity;
+		MoveAndSlide();
+	}	
+	private void Crouch()
 	{
-		GD.Print("Jumping");
-		Vector2 velocity = new Vector2(0, -5000);
-		Position += velocity  * (float)delta;
+		RunningSprite.Visible = false;
+		CrounchingSprite.Visible = true;
 	}
-	
+	private void Stand()
+	{
+		RunningSprite.Visible = true;
+		CrounchingSprite.Visible = false;
+	}
+		
 }
