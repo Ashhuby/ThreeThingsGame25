@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://dafqpowex2btn"]
+
+[ext_resource type="Texture2D" uid="uid://cn8s0cylt1v2k" path="res://Scene/Player/Calvin Q Later.png" id="1_5klqd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widtt"]
+bg_color = Color(0.913725, 0.756863, 0.976471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj8cf"]
+bg_color = Color(0.227451, 0.266667, 0.4, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcsyr"]
+font_size = 150
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackGround(UnderShirt)" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1193.0
+offset_bottom = 684.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_widtt")
+
+[node name="Overall1" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -20.0
+offset_right = 116.0
+offset_bottom = 757.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj8cf")
+
+[node name="Overall2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1037.0
+offset_top = -27.0
+offset_right = 1077.0
+offset_bottom = 750.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj8cf")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -367.0
+offset_top = 71.0
+offset_right = 1144.0
+offset_bottom = 276.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+text = "Snitches Get Stitches
+"
+label_settings = SubResource("LabelSettings_vcsyr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CalvinQLater" type="Sprite2D" parent="Title"]
+position = Vector2(34, -40)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5klqd")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -23.0
+offset_right = 57.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 50
+text = "play"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -46.0
+offset_top = 70.0
+offset_right = 51.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 50
+text = "Exit
+"
