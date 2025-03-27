@@ -15,6 +15,11 @@ scale = Vector2(0.382813, 0.382813)
 texture = ExtResource("1_qxc8s")
 
 [node name="HazardHitBox" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardHitBox"]
 shape = SubResource("RectangleShape2D_sgjju")
+
+[connection signal="area_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_area_entered"]
+[connection signal="body_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_body_entered"]

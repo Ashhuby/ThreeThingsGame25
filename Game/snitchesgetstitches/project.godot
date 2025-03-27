@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="SnitchesGetStitches"
 
+[global_group]
+
+Hazards="Projectiles that harm player."
+
 [input]
 
 Crouch={

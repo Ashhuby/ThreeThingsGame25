@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=6 format=3 uid="uid://qyel3mk7mm5q"]
 
 [ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_v3acy"]
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
@@ -6,32 +6,47 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swdad"]
 size = Vector2(98, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_477fn"]
-size = Vector2(113, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fgch"]
+size = Vector2(97.271, 200.33)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("RunningSprite", "CrounchingSprite")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_477fn"]
+size = Vector2(69, 99)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StandingSprite", "StandingHitBox", "CrounchingSprite", "CrounchingHitBox")]
 position = Vector2(101, 542)
 script = ExtResource("1_ywvpp")
-RunningSprite = NodePath("PlayerRunningSprite")
-CrounchingSprite = NodePath("PlayerCrounchSprite")
+StandingSprite = NodePath("Running/PlayerRunningSprite")
+StandingHitBox = NodePath("Running/StandingHitBox")
+CrounchingSprite = NodePath("Crouching/PlayerCrounchSprite")
+CrounchingHitBox = NodePath("Crouching/CrouchingHitBox")
 
 [node name="CharacterBodyCollidor" type="CollisionShape2D" parent="."]
 position = Vector2(1, 49)
 shape = SubResource("RectangleShape2D_swdad")
 
-[node name="PlayerCrounchSprite" type="Sprite2D" parent="."]
-position = Vector2(0, 11)
-scale = Vector2(1, 0.828125)
-texture = ExtResource("1_v3acy")
+[node name="Running" type="Node2D" parent="."]
 
-[node name="PlayerRunningSprite" type="Sprite2D" parent="."]
+[node name="PlayerRunningSprite" type="Sprite2D" parent="Running"]
 position = Vector2(0, -53)
-scale = Vector2(1, 1.82813)
+scale = Vector2(0.599999, 1.82813)
 texture = ExtResource("1_v3acy")
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
+[node name="StandingHitBox" type="Area2D" parent="Running"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0.5, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Running/StandingHitBox"]
+position = Vector2(-0.5, -53.5)
+scale = Vector2(0.709358, 1.14311)
+shape = SubResource("RectangleShape2D_2fgch")
+
+[node name="Crouching" type="Node2D" parent="."]
+
+[node name="PlayerCrounchSprite" type="Sprite2D" parent="Crouching"]
+position = Vector2(0, 11)
+scale = Vector2(0.61825, 0.828125)
+texture = ExtResource("1_v3acy")
+
+[node name="CrouchingHitBox" type="Area2D" parent="Crouching"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crouching/CrouchingHitBox"]
+position = Vector2(-0.5, 11.5)
 shape = SubResource("RectangleShape2D_477fn")

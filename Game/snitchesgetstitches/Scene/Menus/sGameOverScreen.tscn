@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds0o1gvq8g2yd"]
+
+[ext_resource type="Script" path="res://Script/Menus/GameOverScreen.cs" id="1_sssn7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruxf2"]
+bg_color = Color(0.933333, 0.396078, 0.482353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lgt1"]
+bg_color = Color(0.933333, 0.396078, 0.482353, 1)
+
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("Score")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sssn7")
+Score = NodePath("Blur/Score")
+
+[node name="Blur" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 665.0
+
+[node name="GameOver" type="Label" parent="Blur"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -142.5
+offset_right = -172.0
+offset_bottom = -119.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.92, 5.92)
+text = "Game Over"
+
+[node name="Score" type="Label" parent="Blur"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 16.5
+offset_right = 38.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score
+"
+
+[node name="Buttons" type="Control" parent="Blur"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 66.5
+offset_right = 13.0
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Replay" type="Button" parent="Blur/Buttons"]
+layout_mode = 0
+offset_left = -21.0
+offset_right = 67.0
+offset_bottom = 31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ruxf2")
+text = "Play Again
+"
+
+[node name="Exit" type="Button" parent="Blur/Buttons"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 37.0
+offset_bottom = 67.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_5lgt1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5lgt1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5lgt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lgt1")
+text = "Exit"
