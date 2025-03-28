@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://pyhub6ro3kcb"]
+[gd_scene load_steps=10 format=3 uid="uid://pyhub6ro3kcb"]
 
+[ext_resource type="Script" path="res://Script/Menus/Tooty/Tooty.cs" id="1_7m74k"]
 [ext_resource type="Texture2D" uid="uid://8vegtxvwrwxj" path="res://Assets/Tooty/ScrapperClosedPng.png" id="1_rpaip"]
 [ext_resource type="Texture2D" uid="uid://d4jswuxm7obh2" path="res://Assets/Tooty/ScrapperTalkPng.png" id="2_b7g7w"]
 [ext_resource type="Texture2D" uid="uid://cuhinh1mt22p7" path="res://Assets/Tooty/SpeechBubble2.png" id="3_pg7h0"]
@@ -192,7 +193,9 @@ font = ExtResource("4_8k5ep")
 font_size = 300
 font_color = Color(0.8, 0.352941, 0.235294, 1)
 
-[node name="Tooty" type="Node2D"]
+[node name="Tooty" type="Node2D" node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("1_7m74k")
+animationPlayer = NodePath("AnimationPlayer")
 
 [node name="ClosedMouth" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -223,5 +226,6 @@ offset_bottom = 632.804
 scale = Vector2(0.05, 0.034)
 theme_override_font_sizes/font_size = 150
 text = "Space to Jump.
-S to Slide."
+S to Slide.
+"
 label_settings = SubResource("LabelSettings_no3iy")

@@ -9,7 +9,6 @@ size = Vector2(42, 42)
 [node name="BaseHazard" type="Node2D"]
 position = Vector2(610, 336)
 script = ExtResource("1_wutem")
-Speed = -9.0
 
 [node name="HazardSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.382813, 0.382813)

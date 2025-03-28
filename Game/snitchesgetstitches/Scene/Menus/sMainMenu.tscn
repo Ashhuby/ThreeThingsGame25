@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dafqpowex2btn"]
+[gd_scene load_steps=9 format=3 uid="uid://dafqpowex2btn"]
 
 [ext_resource type="Texture2D" uid="uid://cn8s0cylt1v2k" path="res://Scene/Player/Calvin Q Later.png" id="1_5klqd"]
+[ext_resource type="PackedScene" uid="uid://pyhub6ro3kcb" path="res://Scene/World/Tooty/sTooty.tscn" id="2_1tprr"]
+[ext_resource type="Script" path="res://Script/Menus/HowToPlayScreen.cs" id="2_t8dnf"]
+[ext_resource type="PackedScene" uid="uid://bwoirlfiuypr6" path="res://Scene/World/Tooty/sHowToPlayTitle.tscn" id="3_6dtdg"]
+[ext_resource type="PackedScene" uid="uid://dl3mpme2yyayw" path="res://Scene/World/Tooty/sExitButton.tscn" id="4_ql5wx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widtt"]
 bg_color = Color(0.913725, 0.756863, 0.976471, 1)
@@ -86,12 +90,46 @@ offset_bottom = 54.0
 theme_override_font_sizes/font_size = 50
 text = "play"
 
+[node name="HowToPlay" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = -141.0
+offset_top = 70.0
+offset_right = 161.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 50
+text = "How To Play
+"
+
 [node name="Exit" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = -46.0
-offset_top = 70.0
+offset_top = 161.0
 offset_right = 51.0
-offset_bottom = 147.0
+offset_bottom = 238.0
 theme_override_font_sizes/font_size = 50
 text = "Exit
 "
+
+[node name="HowToPlayScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 697.0
+offset_bottom = 284.0
+script = ExtResource("2_t8dnf")
+is_Active = true
+
+[node name="Blur" type="Panel" parent="HowToPlayScreen"]
+layout_mode = 0
+offset_right = 1220.0
+offset_bottom = 710.0
+
+[node name="Tooty" parent="HowToPlayScreen" instance=ExtResource("2_1tprr")]
+position = Vector2(378, 563)
+scale = Vector2(2.76076, 2.76076)
+
+[node name="HowToPlayTitle" parent="HowToPlayScreen" instance=ExtResource("3_6dtdg")]
+position = Vector2(563, 305)
+
+[node name="ExitHowToPlay" parent="HowToPlayScreen" node_paths=PackedStringArray("HowToPlay") instance=ExtResource("4_ql5wx")]
+position = Vector2(827, 406)
+scale = Vector2(5, 5)
+HowToPlay = NodePath("..")
