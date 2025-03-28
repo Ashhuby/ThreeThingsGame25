@@ -3,7 +3,7 @@ using System;
 
 public partial class BaseHazard : Node2D
 {
-	[Export] public float Speed = -7;
+	[Export] public float Speed = -9;
 	public override void _Ready()
 	{
 	}

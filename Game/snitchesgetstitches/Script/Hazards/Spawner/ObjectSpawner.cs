@@ -5,7 +5,7 @@ public partial class ObjectSpawner : Node2D
 {
 	[Export] PackedScene Object;
 	[Export] Node2D[] SpawnPoints;
-	[Export] float eps = 0.8f;
+	[Export] float eps = 1.5f;
 	float spawn_Rate;
 	float time_until_spawn = 0;
 	public bool is_Spawning = true;

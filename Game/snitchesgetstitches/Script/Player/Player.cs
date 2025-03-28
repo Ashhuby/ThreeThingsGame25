@@ -6,11 +6,12 @@ public partial class Player : CharacterBody2D
 	#region Variables
 	public bool CanMove = true;
 	public int baseHealth = 3;
-	[Export] float JumpStrength = -1500;
+	[Export] float JumpStrength = -2500; //was -1500
 	[Export] float initialGravity = 3000;
 	float Gravity = 3000;
 	[Export] float gravityMultiplier = 1;
 	#endregion
+	bool isCrouching = false;
 
 	[Export] GameManager gameManager;
 	[Export] float maxJumpHeight = 200;
@@ -19,6 +20,7 @@ public partial class Player : CharacterBody2D
 	[Export] Area2D StandingHitBox;
 	[Export] Sprite2D CrounchingSprite;
 	[Export] Area2D CrounchingHitBox;
+	[Export] AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
 		StandingSprite.Visible = true;
@@ -30,14 +32,18 @@ public partial class Player : CharacterBody2D
 		
 		if(CanMove)
 		{
-			if(Input.IsActionPressed("Crouch") && Position.Y == startingPostion.Y)
+			if(Input.IsActionPressed("Crouch") && Position.Y == startingPostion.Y && !isCrouching)
 			{
 				Crouch();
+				isCrouching = true;
 			}
+			
 			if(Input.IsActionJustReleased("Crouch"))
 			{
-				Stand();
+				//Stand();
+				isCrouching = false;
 			}
+			
 
 			
 			Vector2 velocity = Velocity;
@@ -84,12 +90,17 @@ public partial class Player : CharacterBody2D
 	}	
 	private void Crouch()
 	{
+		/*
 		//Sprites
 		StandingSprite.Visible = false;
 		CrounchingSprite.Visible = true;
 		//Hitboxes
 		StandingHitBox.Monitorable = false;
 		CrounchingHitBox.Monitorable = true;
+		*/
+
+		animationPlayer.Play("Crouch");
+		//GD.Print("Crouching");
 	}
 	private void Stand()
 	{

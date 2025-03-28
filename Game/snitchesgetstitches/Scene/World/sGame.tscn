@@ -52,7 +52,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_57ggf")
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="ObjectSpawner" parent="Spawner" instance=ExtResource("1_6iikx")]
-eps = 1.5
 
 [node name="Player" type="Node2D" parent="."]
 
