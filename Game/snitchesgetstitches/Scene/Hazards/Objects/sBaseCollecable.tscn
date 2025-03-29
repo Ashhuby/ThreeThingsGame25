@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://88tp34gldn2l"]
+
+[ext_resource type="Script" path="res://Script/Hazards/Objects/BaseCollecable.cs" id="1_mork0"]
+[ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_qv04b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfc7u"]
+size = Vector2(50, 54)
+
+[node name="BaseCollectable" type="Node2D"]
+script = ExtResource("1_mork0")
+
+[node name="CollectableSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 1
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_qv04b")
+
+[node name="CollectableHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableHitBox"]
+shape = SubResource("RectangleShape2D_vfc7u")
+
+[connection signal="area_entered" from="CollectableHitBox" to="." method="_on_collectable_hit_box_area_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dafqpowex2btn"]
+[gd_scene load_steps=10 format=3 uid="uid://dafqpowex2btn"]
 
 [ext_resource type="Texture2D" uid="uid://cn8s0cylt1v2k" path="res://Scene/Player/Calvin Q Later.png" id="1_5klqd"]
+[ext_resource type="Script" path="res://Script/Menus/MainMenu.cs" id="1_h26pm"]
 [ext_resource type="PackedScene" uid="uid://pyhub6ro3kcb" path="res://Scene/World/Tooty/sTooty.tscn" id="2_1tprr"]
 [ext_resource type="Script" path="res://Script/Menus/HowToPlayScreen.cs" id="2_t8dnf"]
 [ext_resource type="PackedScene" uid="uid://bwoirlfiuypr6" path="res://Scene/World/Tooty/sHowToPlayTitle.tscn" id="3_6dtdg"]
@@ -15,13 +16,15 @@ bg_color = Color(0.227451, 0.266667, 0.4, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_vcsyr"]
 font_size = 150
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("HowToPlay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h26pm")
+HowToPlay = NodePath("HowToPlayScreen")
 
 [node name="BackGround(UnderShirt)" type="Panel" parent="."]
 layout_mode = 0
@@ -119,11 +122,11 @@ text = "Exit
 "
 
 [node name="HowToPlayScreen" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 697.0
 offset_bottom = 284.0
 script = ExtResource("2_t8dnf")
-is_Active = true
 
 [node name="Blur" type="Panel" parent="HowToPlayScreen"]
 layout_mode = 0
@@ -141,3 +144,7 @@ position = Vector2(563, 305)
 position = Vector2(827, 406)
 scale = Vector2(5, 5)
 HowToPlay = NodePath("..")
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

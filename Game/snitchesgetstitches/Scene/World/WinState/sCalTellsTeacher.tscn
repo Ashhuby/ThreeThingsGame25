@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcp26otgtokxh"]
+
+[ext_resource type="Texture2D" uid="uid://db4j03ku6naq0" path="res://Assets/SpeechBox/SpeechBox.png" id="1_hhrgt"]
+
+[node name="CalTellsTeacher" type="Node2D"]
+
+[node name="SpeachBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, -39)
+scale = Vector2(6, 4)
+texture = ExtResource("1_hhrgt")
+
+[node name="Text" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -80.0
+offset_right = 151.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Miss,
+Scrappers bullying me"

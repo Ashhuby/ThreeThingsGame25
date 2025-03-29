@@ -3,7 +3,8 @@ using System;
 
 public partial class ObjectSpawner : Node2D
 {
-	[Export] PackedScene Object;
+	[Export] PackedScene Object;	//This is the hazard object
+	[Export] PackedScene Collectable;	
 	[Export] Node2D[] SpawnPoints;
 	[Export] float eps = 1.5f;
 	float spawn_Rate;
@@ -35,10 +36,30 @@ public partial class ObjectSpawner : Node2D
 	 {
 		
 		RandomNumberGenerator rng = new RandomNumberGenerator();
-		Vector2 location = SpawnPoints[rng.RandiRange(0,SpawnPoints.Length-1)].GlobalPosition;
-		BaseHazard flyingObject = (BaseHazard)Object.Instantiate();
-		flyingObject.GlobalPosition = location;
-		GetTree().Root.AddChild(flyingObject);
-		flyingObject.AddToGroup("Hazards");
+		int index = rng.RandiRange(0,SpawnPoints.Length-1);
+
+		int hazardOrCollectable = rng.RandiRange(0,1);
+
+		PackedScene objectToSpawn = hazardOrCollectable == 0 ? Object : Collectable;
+
+		Vector2 location = SpawnPoints[index].GlobalPosition;
+		if(hazardOrCollectable == 0)
+		{
+			BaseHazard flyingObject = (BaseHazard)objectToSpawn.Instantiate();
+			flyingObject.GlobalPosition = location;
+			flyingObject.originSpawnerIndex = index;	//Set the index of the spawner that spawned this object.
+			GetTree().Root.AddChild(flyingObject);
+			flyingObject.AddToGroup("Hazards");
+		}
+		else
+		{
+			BaseCollecable flyingObject = (BaseCollecable)objectToSpawn.Instantiate();
+			flyingObject.GlobalPosition = location;
+			flyingObject.originSpawnerIndex = index;	//Set the index of the spawner that spawned this object.
+			GetTree().Root.AddChild(flyingObject);
+			flyingObject.AddToGroup("Hazards");
+		}
+
+		
 	 }
 }

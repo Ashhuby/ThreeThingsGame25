@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bagq381rthodt"]
+
+[ext_resource type="Script" path="res://Script/Menus/WinScreen.cs" id="1_hlqi0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhnoj"]
+bg_color = Color(1.44392e-07, 0.812586, 0.395563, 0.223529)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0vnm"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ww8dd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ai00o"]
+font_size = 32
+
+[node name="WinScreen" type="Control" node_paths=PackedStringArray("timeTakenLabel", "livesLeft")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hlqi0")
+timeTakenLabel = NodePath("BeatTime")
+livesLeft = NodePath("LivesLeft")
+
+[node name="Blur" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 749.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhnoj")
+
+[node name="YouWin" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 67.0
+offset_right = 296.0
+offset_bottom = 142.0
+text = "You Win"
+label_settings = SubResource("LabelSettings_s0vnm")
+horizontal_alignment = 1
+
+[node name="LivesLeft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 188.0
+offset_right = 291.0
+offset_bottom = 281.0
+text = "Lives Error"
+label_settings = SubResource("LabelSettings_ww8dd")
+horizontal_alignment = 1
+
+[node name="BeatTime" type="Label" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 308.0
+offset_right = 260.0
+offset_bottom = 401.0
+text = "Timer Error"
+label_settings = SubResource("LabelSettings_ai00o")
+horizontal_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReplayNM" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 449.0
+offset_right = 233.0
+offset_bottom = 480.0
+text = "Replay in normal mode"
+
+[node name="ReplayHM" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 497.0
+offset_right = 214.0
+offset_bottom = 528.0
+text = "Replay in hard mode"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 546.0
+offset_right = 153.0
+offset_bottom = 577.0
+text = "Exit to menu"
+
+[connection signal="pressed" from="Buttons/ReplayNM" to="." method="_on_replay_nm_pressed"]
+[connection signal="pressed" from="Buttons/ReplayHM" to="." method="_on_replay_hm_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

@@ -35,7 +35,7 @@ offset_right = 366.0
 offset_bottom = 27.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wvww3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hkcsg")
-max_value = 20.0
+max_value = 80.0
 show_percentage = false
 
 [node name="TeacherSprite" type="Sprite2D" parent="."]

@@ -4,6 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	#region Variables
+	[Export] public bool invincible = false;
 	public bool CanMove = true;
 	public int baseHealth = 3;
 	[Export] float JumpStrength = -2500; //was -1500
@@ -13,6 +14,7 @@ public partial class Player : CharacterBody2D
 	#endregion
 	bool isCrouching = false;
 
+
 	[Export] GameManager gameManager;
 	[Export] float maxJumpHeight = 200;
 	[Export] public Vector2 startingPostion = new Vector2(101, 542);
@@ -21,6 +23,7 @@ public partial class Player : CharacterBody2D
 	[Export] Sprite2D CrounchingSprite;
 	[Export] Area2D CrounchingHitBox;
 	[Export] AnimationPlayer animationPlayer;
+	[Export] Node2D SpeechBubble;
 	public override void _Ready()
 	{
 		StandingSprite.Visible = true;
@@ -113,6 +116,11 @@ public partial class Player : CharacterBody2D
 
 	public void PlayerTakesDamage(int DamageAmount)
 	{
+		if(invincible)
+		{
+			return;
+		}
+		
 		baseHealth -= DamageAmount;
 		gameManager.UpdateHealth(baseHealth);
 		//GD.Print("Player Health: " + baseHealth);
@@ -126,6 +134,12 @@ public partial class Player : CharacterBody2D
 		//QueueFree();
 		GD.Print("Player has died");	
 		gameManager.IsGameOver = true;
+	}
+	public void WalkTeacherAnimation()
+	{
+		animationPlayer.Play("WalkToTeacher");
+		SpeechBubble.Visible = true;
+
 	}
 		
 }

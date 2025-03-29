@@ -26,7 +26,7 @@ public partial class WinProgress : Control
 		}
 		if(BarValue == progressBar.MaxValue)
 		{
-			GD.Print("You Win");
+			//GD.Print("You Win");
 			GameWon = true;
 		}
 		
