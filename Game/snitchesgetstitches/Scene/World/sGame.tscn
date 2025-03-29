@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://caa6oxgxvdafd"]
+[gd_scene load_steps=11 format=3 uid="uid://caa6oxgxvdafd"]
 
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_6iikx"]
 [ext_resource type="PackedScene" uid="uid://c42l8xnf76hvb" path="res://Scene/World/Manager/sGameManager.tscn" id="1_g444i"]
 [ext_resource type="PackedScene" uid="uid://qyel3mk7mm5q" path="res://Scene/Player/sPlayer.tscn" id="2_y0gb7"]
+[ext_resource type="PackedScene" uid="uid://xmyorg0m0fi7" path="res://Scene/World/UI/sWinProgress.tscn" id="4_2ci1i"]
 [ext_resource type="PackedScene" uid="uid://ds0o1gvq8g2yd" path="res://Scene/Menus/sGameOverScreen.tscn" id="4_wfcwr"]
+[ext_resource type="PackedScene" uid="uid://ddjrwa6emmp5o" path="res://Scene/World/WinState/sTeacherWinState.tscn" id="6_g0jbu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01q13"]
 bg_color = Color(0.619117, 0.589363, 1, 1)
@@ -54,28 +56,39 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_57ggf")
 [node name="ObjectSpawner" parent="Spawner" instance=ExtResource("1_6iikx")]
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(113, 0)
 
 [node name="Player" parent="Player" node_paths=PackedStringArray("gameManager") instance=ExtResource("2_y0gb7")]
 gameManager = NodePath("../../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel", "healthLabel", "player", "gameOverScreen", "objectSpawner") instance=ExtResource("1_g444i")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel", "healthLabel", "player", "gameOverScreen", "objectSpawner", "winProgress", "WinState") instance=ExtResource("1_g444i")]
 scoreLabel = NodePath("Score")
 healthLabel = NodePath("Health")
 player = NodePath("../Player/Player")
 gameOverScreen = NodePath("../Menus/GameOverScreen")
 objectSpawner = NodePath("../Spawner/ObjectSpawner")
+winProgress = NodePath("WinProgress")
+WinState = NodePath("../WinState")
+
+[node name="WinProgress" parent="GameManager" instance=ExtResource("4_2ci1i")]
+offset_left = 78.0
+offset_top = 27.0
+offset_right = 78.0
+offset_bottom = 27.0
+scale = Vector2(2.52, 1.96)
 
 [node name="Score" type="Label" parent="GameManager"]
+visible = false
 offset_left = 182.0
 offset_top = 31.0
 offset_right = 930.0
 offset_bottom = 66.0
 
 [node name="Health" type="Label" parent="GameManager"]
-offset_left = 44.0
-offset_top = 24.0
-offset_right = 84.0
-offset_bottom = 64.0
+offset_left = 33.0
+offset_top = 76.0
+offset_right = 73.0
+offset_bottom = 116.0
 text = "H"
 
 [node name="Menus" type="Node2D" parent="."]
@@ -87,3 +100,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="WinState" type="Node2D" parent="."]
+visible = false
+position = Vector2(1056, 388)
+
+[node name="TeacherWinState" parent="WinState" instance=ExtResource("6_g0jbu")]

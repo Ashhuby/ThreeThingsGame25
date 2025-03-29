@@ -219,13 +219,13 @@ scale = Vector2(1.85156, 1.625)
 texture = ExtResource("3_pg7h0")
 
 [node name="Label" type="Label" parent="Bubble2"]
-offset_left = -24.5536
-offset_top = -32.1956
-offset_right = 1064.45
-offset_bottom = 632.804
+offset_left = -25.0
+offset_top = -32.0
+offset_right = 1192.0
+offset_bottom = 633.0
 scale = Vector2(0.05, 0.034)
 theme_override_font_sizes/font_size = 150
-text = "Space to Jump.
-S to Slide.
+text = "Space to Jump. S to Slide.
 "
 label_settings = SubResource("LabelSettings_no3iy")
+autowrap_mode = 2

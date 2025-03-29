@@ -45,6 +45,14 @@ offset_right = 1077.0
 offset_bottom = 750.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hj8cf")
 
+[node name="Overall3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 461.0
+offset_right = 1315.0
+offset_bottom = 744.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj8cf")
+
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5

@@ -15,7 +15,7 @@ public partial class Player : CharacterBody2D
 
 	[Export] GameManager gameManager;
 	[Export] float maxJumpHeight = 200;
-	[Export] Vector2 startingPostion = new Vector2(101, 542);
+	[Export] public Vector2 startingPostion = new Vector2(101, 542);
 	[Export] Sprite2D StandingSprite;
 	[Export] Area2D StandingHitBox;
 	[Export] Sprite2D CrounchingSprite;
@@ -64,7 +64,7 @@ public partial class Player : CharacterBody2D
 			//Handle jumping
 			if(Input.IsActionJustPressed("Jump") && Position.Y == startingPostion.Y)
 			{
-				GD.Print("Jumping");
+				//GD.Print("Jumping");
 				Stand();
 				velocity.Y = JumpStrength; // Ensure jump applies correctly
 			}

@@ -8,9 +8,13 @@ public partial class GameManager : Node2D
 	[Export] Player player;
 	[Export] GameOverScreen gameOverScreen;
 	[Export] ObjectSpawner objectSpawner;
+	[Export] WinProgress winProgress;
+	[Export] Node2D WinState;
 	public int score = 0;
 	public int health = 0;
 	public bool IsGameOver = false;
+	public bool IsGameWon = false;
+	
 	public override void _Ready()
 	{
 		GD.Print("Mananger Ready");
@@ -26,6 +30,21 @@ public partial class GameManager : Node2D
 		if(IsGameOver)
 		{
 			GameOver();
+		}
+
+		//Update Progress Bar
+		winProgress.SetBarValue(score);
+
+		if(winProgress.GameWon)
+		{
+			IsGameWon = true;
+			WinState.Visible = true;
+			objectSpawner.is_Spawning = false;
+			if(player.Position.Y == player.startingPostion.Y)	//when player is on floor movement is locked.
+			{
+				player.CanMove = false;
+			}
+			
 		}
 		
 	}

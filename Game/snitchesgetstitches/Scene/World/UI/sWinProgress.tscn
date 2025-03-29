@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://xmyorg0m0fi7"]
+
+[ext_resource type="Script" path="res://Script/World/UI/WinProgress.cs" id="1_ok3r6"]
+[ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_sxipo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvww3"]
+bg_color = Color(0, 0, 0, 0.207843)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkcsg"]
+bg_color = Color(0.258824, 1, 0.345098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(2.93598e-06, 0.766388, 0.187522, 1)
+border_blend = true
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+
+[node name="WinProgress" type="Control" node_paths=PackedStringArray("progressBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok3r6")
+progressBar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 366.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wvww3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hkcsg")
+max_value = 20.0
+show_percentage = false
+
+[node name="TeacherSprite" type="Sprite2D" parent="."]
+position = Vector2(390, 15)
+scale = Vector2(0.359375, 0.359375)
+texture = ExtResource("1_sxipo")
