@@ -3,6 +3,8 @@ using System;
 
 public partial class ObjectSpawner : Node2D
 {
+
+	[Export] bool HardMode = false;
 	[Export] PackedScene Object;	//This is the hazard object
 	[Export] PackedScene Collectable;	
 	[Export] Node2D[] SpawnPoints;
@@ -13,6 +15,10 @@ public partial class ObjectSpawner : Node2D
 
 	public override void _Ready()
 	{
+		if(HardMode)
+		{
+			eps = 2.0f;
+		}
 		spawn_Rate = 1 / eps;
 	}
 
@@ -49,6 +55,14 @@ public partial class ObjectSpawner : Node2D
 			flyingObject.GlobalPosition = location;
 			flyingObject.originSpawnerIndex = index;	//Set the index of the spawner that spawned this object.
 			GetTree().Root.AddChild(flyingObject);
+			if(HardMode)
+			{
+				flyingObject.Speed = -12;
+			}
+			else
+			{
+				flyingObject.Speed = -9;
+			}
 			flyingObject.AddToGroup("Hazards");
 		}
 		else
@@ -57,6 +71,14 @@ public partial class ObjectSpawner : Node2D
 			flyingObject.GlobalPosition = location;
 			flyingObject.originSpawnerIndex = index;	//Set the index of the spawner that spawned this object.
 			GetTree().Root.AddChild(flyingObject);
+			if(HardMode)
+			{
+				flyingObject.Speed = -12;
+			}
+			else
+			{
+				flyingObject.Speed = -9;
+			}
 			flyingObject.AddToGroup("Hazards");
 		}
 
