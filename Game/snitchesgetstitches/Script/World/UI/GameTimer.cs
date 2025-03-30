@@ -17,7 +17,7 @@ public partial class GameTimer : Node2D
 		if(counting)
 		{
 			time += delta;
-			GD.Print("Time: " + time);
+			//GD.Print("Time: " + time);
 		}
 	}
 	public void stopTimer()

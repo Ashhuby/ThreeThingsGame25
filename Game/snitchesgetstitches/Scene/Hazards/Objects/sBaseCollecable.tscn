@@ -8,6 +8,7 @@ size = Vector2(50, 54)
 
 [node name="BaseCollectable" type="Node2D"]
 script = ExtResource("1_mork0")
+Speed = -11.0
 
 [node name="CollectableSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0, 1)

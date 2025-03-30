@@ -4,6 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	#region Variables
+	public bool PlayerHardMode = false;
 	[Export] public bool invincible = false;
 	public bool CanMove = true;
 	public int baseHealth = 3;
@@ -24,10 +25,12 @@ public partial class Player : CharacterBody2D
 	[Export] Area2D CrounchingHitBox;
 	[Export] AnimationPlayer animationPlayer;
 	[Export] Node2D SpeechBubble;
+	[Export] HeartContainer heartContainer;
 	public override void _Ready()
 	{
 		StandingSprite.Visible = true;
 		CrounchingSprite.Visible = false;
+		heartContainer.SetHearts(baseHealth);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -93,17 +96,17 @@ public partial class Player : CharacterBody2D
 	}	
 	private void Crouch()
 	{
-		/*
-		//Sprites
-		StandingSprite.Visible = false;
-		CrounchingSprite.Visible = true;
-		//Hitboxes
-		StandingHitBox.Monitorable = false;
-		CrounchingHitBox.Monitorable = true;
-		*/
-
-		animationPlayer.Play("Crouch");
-		//GD.Print("Crouching");
+		
+		if(PlayerHardMode)
+		{
+			animationPlayer.Play("Crouch");
+		}
+		else
+		{
+			animationPlayer.Play("CrouchNM");
+		}
+		
+		
 	}
 	private void Stand()
 	{
@@ -122,6 +125,7 @@ public partial class Player : CharacterBody2D
 		}
 		
 		baseHealth -= DamageAmount;
+		heartContainer.RemoveHearts(DamageAmount);
 		gameManager.UpdateHealth(baseHealth);
 		//GD.Print("Player Health: " + baseHealth);
 		if(baseHealth <= 0)

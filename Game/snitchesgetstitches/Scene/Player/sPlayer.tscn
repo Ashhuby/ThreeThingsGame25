@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=12 format=3 uid="uid://qyel3mk7mm5q"]
 
 [ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_v3acy"]
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
@@ -8,10 +8,10 @@
 size = Vector2(98, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fgch"]
-size = Vector2(97.271, 200.33)
+size = Vector2(85.9933, 200.33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_477fn"]
-size = Vector2(69, 99)
+size = Vector2(66, 99)
 
 [sub_resource type="Animation" id="Animation_kieqq"]
 resource_name = "Crouch"
@@ -60,6 +60,58 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rh327"]
+resource_name = "CrouchNM"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Running/PlayerRunningSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Running/StandingHitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crouching/PlayerCrounchSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Crouching/CrouchingHitBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -138,7 +190,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0.5, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(101, 542), Vector2(551, 542)]
@@ -147,6 +199,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xksfy"]
 _data = {
 "Crouch": SubResource("Animation_kieqq"),
+"CrouchNM": SubResource("Animation_rh327"),
 "RESET": SubResource("Animation_rcgt8"),
 "WalkToTeacher": SubResource("Animation_iqdq1")
 }
@@ -175,7 +228,7 @@ texture = ExtResource("1_v3acy")
 [node name="StandingHitBox" type="Area2D" parent="Running"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Running/StandingHitBox"]
-position = Vector2(-0.5, -53.5)
+position = Vector2(0.5, -53.5)
 scale = Vector2(0.709358, 1.14311)
 shape = SubResource("RectangleShape2D_2fgch")
 
@@ -190,7 +243,7 @@ texture = ExtResource("1_v3acy")
 [node name="CrouchingHitBox" type="Area2D" parent="Crouching"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crouching/CrouchingHitBox"]
-position = Vector2(-0.5, 11.5)
+position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_477fn")
 disabled = true
 

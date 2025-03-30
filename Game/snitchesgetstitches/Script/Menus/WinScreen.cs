@@ -8,6 +8,7 @@ public partial class WinScreen : Control
 	public int lives = 0;
 	[Export] Label timeTakenLabel;
 	[Export] Label livesLeft;
+	public static bool WinScreenHM = false;
 
     public override void _Ready()
     {
@@ -19,6 +20,8 @@ public partial class WinScreen : Control
 		
 		timeTakenLabel.Text = "Snitch Time: \n" + Math.Round(timeTaken, 3) + "s";	//Round to 3 decimal places
 		livesLeft.Text = "Lives Left: \n" + lives;
+		
+		MainMenu.HM = false;	//Reset HardMode to false
 	}
 
 	public void SetTime(double time)
@@ -33,11 +36,13 @@ public partial class WinScreen : Control
 	private void _on_replay_nm_pressed()
 	{
 		GetTree().ChangeSceneToFile("res://Scene/World/sGame.tscn");
+		WinScreenHM = false;
 	}
 
 	private void _on_replay_hm_pressed()
 	{
-		GD.Print("Hard Mode");
+		GetTree().ChangeSceneToFile("res://Scene/World/sGame.tscn");
+		WinScreenHM = true;
 	}
 
 	private void _on_exit_pressed()

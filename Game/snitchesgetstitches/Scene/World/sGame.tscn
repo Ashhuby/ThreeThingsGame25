@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://caa6oxgxvdafd"]
+[gd_scene load_steps=14 format=3 uid="uid://caa6oxgxvdafd"]
 
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_6iikx"]
 [ext_resource type="PackedScene" uid="uid://c42l8xnf76hvb" path="res://Scene/World/Manager/sGameManager.tscn" id="1_g444i"]
 [ext_resource type="PackedScene" uid="uid://qyel3mk7mm5q" path="res://Scene/Player/sPlayer.tscn" id="2_y0gb7"]
 [ext_resource type="PackedScene" uid="uid://xmyorg0m0fi7" path="res://Scene/World/UI/sWinProgress.tscn" id="4_2ci1i"]
 [ext_resource type="PackedScene" uid="uid://ds0o1gvq8g2yd" path="res://Scene/Menus/sGameOverScreen.tscn" id="4_wfcwr"]
+[ext_resource type="PackedScene" uid="uid://k3147nov8ih4" path="res://Scene/World/UI/sHeartContainer.tscn" id="5_n1u00"]
 [ext_resource type="PackedScene" uid="uid://ddjrwa6emmp5o" path="res://Scene/World/WinState/sTeacherWinState.tscn" id="6_g0jbu"]
 [ext_resource type="PackedScene" uid="uid://bagq381rthodt" path="res://Scene/Menus/sWinScreen.tscn" id="6_senq4"]
 [ext_resource type="PackedScene" uid="uid://dh0dxsvm1eue6" path="res://Scene/World/UI/GameTimer.tscn" id="8_pbf62"]
@@ -56,13 +57,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_57ggf")
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="ObjectSpawner" parent="Spawner" instance=ExtResource("1_6iikx")]
-HardMode = true
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(113, 0)
 
-[node name="Player" parent="Player" node_paths=PackedStringArray("gameManager") instance=ExtResource("2_y0gb7")]
+[node name="Player" parent="Player" node_paths=PackedStringArray("gameManager", "heartContainer") instance=ExtResource("2_y0gb7")]
 gameManager = NodePath("../../GameManager")
+heartContainer = NodePath("HealthLayer/HeartContainer")
+
+[node name="HealthLayer" type="CanvasLayer" parent="Player/Player"]
+
+[node name="HeartContainer" parent="Player/Player/HealthLayer" instance=ExtResource("5_n1u00")]
+offset_left = 27.0
+offset_top = 12.0
+offset_right = 67.0
+offset_bottom = 116.0
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel", "healthLabel", "player", "gameOverScreen", "winScreen", "objectSpawner", "winProgress", "WinState", "gameTimer") instance=ExtResource("1_g444i")]
 scoreLabel = NodePath("Score")
@@ -90,6 +99,7 @@ offset_right = 930.0
 offset_bottom = 66.0
 
 [node name="Health" type="Label" parent="GameManager"]
+visible = false
 offset_left = 19.0
 offset_top = 32.0
 offset_right = 59.0

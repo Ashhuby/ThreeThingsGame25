@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3147nov8ih4"]
+
+[ext_resource type="Script" path="res://Script/World/UI/HeartContainer.cs" id="1_eg3l7"]
+[ext_resource type="PackedScene" uid="uid://4lyv7fsvpmxc" path="res://Scene/World/UI/sHeartGUI.tscn" id="2_s6ryf"]
+
+[node name="HeartContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eg3l7")
+_heartPanel = ExtResource("2_s6ryf")

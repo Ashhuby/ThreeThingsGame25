@@ -92,14 +92,23 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="Buttons"]
+[node name="PlayNM" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = -52.0
+offset_left = -332.0
 offset_top = -23.0
-offset_right = 57.0
+offset_right = 8.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 50
-text = "play"
+text = "Normal "
+
+[node name="PlayHM" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -23.0
+offset_right = 301.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 50
+text = "Hard"
 
 [node name="HowToPlay" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -145,6 +154,7 @@ position = Vector2(827, 406)
 scale = Vector2(5, 5)
 HowToPlay = NodePath("..")
 
-[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/PlayNM" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/PlayHM" to="." method="_on_play_hm_pressed"]
 [connection signal="pressed" from="Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

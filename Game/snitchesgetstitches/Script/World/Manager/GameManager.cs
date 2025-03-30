@@ -1,8 +1,10 @@
 using Godot;
+using GodotPlugins.Game;
 using System;
 
 public partial class GameManager : Node2D
 {
+	[Export] public bool GameManagerHardMode = false;
 	[Export] Label scoreLabel;
 	[Export] Label healthLabel;
 	[Export] Player player;
@@ -20,8 +22,28 @@ public partial class GameManager : Node2D
 	
 	public override void _Ready()
 	{
-		GD.Print("Mananger Ready");
+
+		if(MainMenu.HM || WinScreen.WinScreenHM)
+		{
+			GameManagerHardMode = true;
+		}
+		else
+		{
+			GameManagerHardMode = false;
+		}
+		
 		health = player.baseHealth;
+		if(GameManagerHardMode)
+		{
+			player.PlayerHardMode = true;
+			objectSpawner.SpawnerHardMode = true;
+			winProgress.WinProgressHardMode = true;
+			GD.Print("HardMode");
+		}
+		else 
+		{
+			GD.Print("NormalMode");
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,6 +107,7 @@ public partial class GameManager : Node2D
 
 			// Make player invincible
 			player.invincible = true;
+			
 		}
 		
 	}
@@ -110,6 +133,9 @@ public partial class GameManager : Node2D
 		player.CanMove = false;
 
 		gameOverScreen.SetScore(score);
+
+		MainMenu.HM = false;	//Reset HardMode to false
+		WinScreen.WinScreenHM = false;	//Reset HardMode to false
 
 		
 
