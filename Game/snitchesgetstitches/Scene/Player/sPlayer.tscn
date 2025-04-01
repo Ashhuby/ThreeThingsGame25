@@ -359,7 +359,7 @@ _data = {
 "WalkToTeacher": SubResource("Animation_iqdq1")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StandingSprite", "StandingHitBox", "CrounchingSprite", "CrounchingHitBox", "animationPlayer", "SpeechBubble")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("RunningSprite", "StandingHitBox", "CrounchingSprite", "CrounchingHitBox", "animationPlayer", "SpeechBubble", "calvin", "slide")]
 z_index = 5
 position = Vector2(101, 542)
 script = ExtResource("1_ywvpp")
@@ -369,6 +369,8 @@ CrounchingSprite = NodePath("Crouching/PlayerCrounchSprite")
 CrounchingHitBox = NodePath("Crouching/CrouchingHitBox")
 animationPlayer = NodePath("StateAnimationPlayer")
 SpeechBubble = NodePath("CalTellsTeacher")
+calvin = NodePath("Running/Calvin")
+slide = NodePath("Crouching/PlayerCrounchSprite")
 
 [node name="CharacterBodyCollidor" type="CollisionShape2D" parent="."]
 position = Vector2(1, 49)

@@ -27,10 +27,11 @@ public partial class Player : CharacterBody2D
 	[Export] AnimationPlayer animationPlayer;
 	[Export] Node2D SpeechBubble;
 	[Export] HeartContainer heartContainer;
-	private AnimatedSprite2D calvin;
-	private AnimatedSprite2D slide;
+	[Export]private AnimatedSprite2D calvin;
+	[Export]private AnimatedSprite2D slide;
 	public override void _Ready()
 	{
+		/*
 		// Just checks if any of the nonsense that I made is actually there
 		calvin = GetNode<AnimatedSprite2D>("Running/Calvin");
 		if (calvin == null){
@@ -40,6 +41,7 @@ public partial class Player : CharacterBody2D
 		if (slide == null){
 			GD.Print("We ain't sliding!");
 		}
+		*/
 		CrounchingSprite.Visible = false;
 		heartContainer.SetHearts(baseHealth);
 	}

@@ -43,13 +43,27 @@ public partial class BaseCollecable : Node2D
 			{
 				GD.Print("No GM");
 			}
+
 			try
 			{
-				EndlessGameManager egm = p.GetParent().GetParent().GetNode<EndlessGameManager>("EndlessGameManager");
+				Node2D EMPath;
+				try
+				{
+					EMPath = p?.GetParent()?.GetParent()?.GetNodeOrNull<EndlessGameManager>("EndlessGameManager");
+				}
+				catch{EMPath = null;}
+
+				EndlessGameManager egm = (EndlessGameManager)EMPath;
 				if(egm != null) egm.Endlessscore += 3;	// Adds 3 to score.
 			}
-			catch{}
+			catch
+			{
+				GD.PrintErr("No EGM");
+			}
 			
+
+
+			//Delete projctile after
 			if(!p.invincible)	
 			{
 				QueueFree();
