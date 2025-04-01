@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xmyorg0m0fi7"]
 
 [ext_resource type="Script" path="res://Script/World/UI/WinProgress.cs" id="1_ok3r6"]
-[ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_sxipo"]
+[ext_resource type="Texture2D" uid="uid://caajj54mlfii" path="res://Assets/Teacher/Teacher Icon.png" id="2_5sweb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvww3"]
 bg_color = Color(0, 0, 0, 0.207843)
@@ -39,6 +39,7 @@ max_value = 80.0
 show_percentage = false
 
 [node name="TeacherSprite" type="Sprite2D" parent="."]
-position = Vector2(390, 15)
-scale = Vector2(0.359375, 0.359375)
-texture = ExtResource("1_sxipo")
+texture_filter = 1
+position = Vector2(390, 31)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5sweb")

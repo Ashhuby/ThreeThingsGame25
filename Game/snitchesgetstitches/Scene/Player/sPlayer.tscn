@@ -1,29 +1,184 @@
-[gd_scene load_steps=12 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=38 format=3 uid="uid://qyel3mk7mm5q"]
 
-[ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_v3acy"]
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
+[ext_resource type="Texture2D" uid="uid://debuio0uetcvk" path="res://Assets/Calvin/Calvin Running/Calvin Running00.png" id="2_xqdyw"]
+[ext_resource type="Texture2D" uid="uid://di4j88ui1fdi" path="res://Assets/Calvin/Calvin Running/Calvin Running01.png" id="3_10dq0"]
 [ext_resource type="PackedScene" uid="uid://dcp26otgtokxh" path="res://Scene/World/WinState/sCalTellsTeacher.tscn" id="3_l44ps"]
+[ext_resource type="Texture2D" uid="uid://vr0x8h6pjhou" path="res://Assets/Calvin/Calvin Running/Calvin Running02.png" id="4_tye2q"]
+[ext_resource type="Texture2D" uid="uid://cd05u0ks61pq4" path="res://Assets/Calvin/Calvin Running/Calvin Running03.png" id="5_bppgv"]
+[ext_resource type="Texture2D" uid="uid://cn5xq38lsnpve" path="res://Assets/Calvin/Calvin Running/Calvin Running04.png" id="6_sku7n"]
+[ext_resource type="Texture2D" uid="uid://dtxobqgopqym2" path="res://Assets/Calvin/Calvin Running/Calvin Running05.png" id="7_u20la"]
+[ext_resource type="Texture2D" uid="uid://bhl6i2fyr0ked" path="res://Assets/Calvin/Calvin Running/Calvin Running06.png" id="8_kddsl"]
+[ext_resource type="Texture2D" uid="uid://cvxcb2rgn8h2q" path="res://Assets/Calvin/Calvin Running/Calvin Running07.png" id="9_l1vt4"]
+[ext_resource type="Texture2D" uid="uid://bfi5835dx5bhs" path="res://Assets/Calvin/Calvin Running/Calvin Running08.png" id="10_0h7cq"]
+[ext_resource type="Texture2D" uid="uid://dqa6bojn27dxo" path="res://Assets/Calvin/Calvin Running/Calvin Running09.png" id="11_5rauw"]
+[ext_resource type="Texture2D" uid="uid://cjbqfdvjitam8" path="res://Assets/Calvin/Calvin Running/Calvin Running10.png" id="12_ipse1"]
+[ext_resource type="Texture2D" uid="uid://dpjbhl1ny3cyc" path="res://Assets/Calvin/Calvin Running/Calvin Running11.png" id="13_2g222"]
+[ext_resource type="Texture2D" uid="uid://bbcm7hw6f8uc7" path="res://Assets/Calvin/Calvin Jump/Calvin Jump0.png" id="14_poyp4"]
+[ext_resource type="Texture2D" uid="uid://ctw8ipig7r3a1" path="res://Assets/Calvin/Calvin Jump/Calvin Jump1.png" id="15_mresy"]
+[ext_resource type="Texture2D" uid="uid://b8e2ikjinq11g" path="res://Assets/Calvin/Calvin Jump/Calvin Jump2.png" id="16_2js2q"]
+[ext_resource type="Texture2D" uid="uid://bqdjqcildwmga" path="res://Assets/Calvin/Calvin Jump/Calvin Jump3.png" id="17_ytsum"]
+[ext_resource type="Texture2D" uid="uid://ccoa0m717cp7d" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide02.png" id="18_lg433"]
+[ext_resource type="Texture2D" uid="uid://p2nd6uuxapnb" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide03.png" id="19_1iv2b"]
+[ext_resource type="Texture2D" uid="uid://q7c1y47v22fv" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide04.png" id="20_yp2xm"]
+[ext_resource type="Texture2D" uid="uid://drcd5j1lucwr0" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide05.png" id="21_worx4"]
+[ext_resource type="Texture2D" uid="uid://ca2eaao3mfk0g" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide06.png" id="22_mh3wr"]
+[ext_resource type="Texture2D" uid="uid://c3f2cpk3u4s3w" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide07.png" id="23_45osj"]
+[ext_resource type="Texture2D" uid="uid://cfvo8r2vcqhkr" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide08.png" id="24_325i5"]
+[ext_resource type="Texture2D" uid="uid://dsye40350pxjd" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide09.png" id="25_nagxj"]
+[ext_resource type="Texture2D" uid="uid://bgn0lmub6wwae" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide10.png" id="26_qipdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swdad"]
 size = Vector2(98, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fgch"]
-size = Vector2(85.9933, 200.33)
+size = Vector2(85.9933, 174.086)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgqrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xqdyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_10dq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tye2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bppgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sku7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u20la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kddsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l1vt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0h7cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5rauw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ipse1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2g222")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_poyp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mresy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2js2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ytsum")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_lg433")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1iv2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yp2xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_worx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mh3wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_45osj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_325i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nagxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qipdq")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o36ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_lg433")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1iv2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yp2xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_worx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mh3wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_45osj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_325i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nagxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qipdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1iv2b")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 20.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_477fn"]
-size = Vector2(66, 99)
+size = Vector2(107, 93)
 
 [sub_resource type="Animation" id="Animation_kieqq"]
 resource_name = "Crouch"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Running/PlayerRunningSprite:visible")
+tracks/0/path = NodePath("Running/Calvin:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.333333),
+"times": PackedFloat32Array(0, 0.0333333, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -35,7 +190,7 @@ tracks/1/path = NodePath("Running/StandingHitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.333333),
+"times": PackedFloat32Array(0, 0.0333333, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -47,7 +202,7 @@ tracks/2/path = NodePath("Crouching/PlayerCrounchSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.333333),
+"times": PackedFloat32Array(0, 0.0333333, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -59,7 +214,7 @@ tracks/3/path = NodePath("Crouching/CrouchingHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.333333),
+"times": PackedFloat32Array(0, 0.0333333, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -71,7 +226,7 @@ length = 0.45
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Running/PlayerRunningSprite:visible")
+tracks/0/path = NodePath("Running/Calvin:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -122,7 +277,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Running/PlayerRunningSprite:visible")
+tracks/0/path = NodePath("Running/Calvin:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -208,7 +363,7 @@ _data = {
 z_index = 5
 position = Vector2(101, 542)
 script = ExtResource("1_ywvpp")
-StandingSprite = NodePath("Running/PlayerRunningSprite")
+RunningSprite = NodePath("Running/Calvin")
 StandingHitBox = NodePath("Running/StandingHitBox")
 CrounchingSprite = NodePath("Crouching/PlayerCrounchSprite")
 CrounchingHitBox = NodePath("Crouching/CrouchingHitBox")
@@ -221,30 +376,37 @@ shape = SubResource("RectangleShape2D_swdad")
 
 [node name="Running" type="Node2D" parent="."]
 
-[node name="PlayerRunningSprite" type="Sprite2D" parent="Running"]
-position = Vector2(0, -53)
-scale = Vector2(0.599999, 1.82813)
-texture = ExtResource("1_v3acy")
-
 [node name="StandingHitBox" type="Area2D" parent="Running"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Running/StandingHitBox"]
-position = Vector2(0.5, -53.5)
+position = Vector2(0.5, -38.5002)
 scale = Vector2(0.709358, 1.14311)
 shape = SubResource("RectangleShape2D_2fgch")
 
+[node name="Calvin" type="AnimatedSprite2D" parent="Running"]
+texture_filter = 1
+position = Vector2(-26, -63)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tgqrp")
+autoplay = "default"
+
 [node name="Crouching" type="Node2D" parent="."]
 
-[node name="PlayerCrounchSprite" type="Sprite2D" parent="Crouching"]
+[node name="PlayerCrounchSprite" type="AnimatedSprite2D" parent="Crouching"]
 visible = false
-position = Vector2(0, 11)
-scale = Vector2(0.61825, 0.828125)
-texture = ExtResource("1_v3acy")
+texture_filter = 1
+position = Vector2(7, -48)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o36ap")
+animation = &"slide"
+autoplay = "slide"
+frame = 5
+frame_progress = 0.52885
 
 [node name="CrouchingHitBox" type="Area2D" parent="Crouching"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crouching/CrouchingHitBox"]
-position = Vector2(0, 11.5)
+position = Vector2(20.5, 8.5)
 shape = SubResource("RectangleShape2D_477fn")
 disabled = true
 
