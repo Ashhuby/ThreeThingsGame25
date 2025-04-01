@@ -150,7 +150,6 @@ public partial class GameManager : Node2D
 		MainMenu.HM = false;	//Reset HardMode to false
 		WinScreen.WinScreenHM = false;	//Reset HardMode to false
 
-		
 
 	}
 		
