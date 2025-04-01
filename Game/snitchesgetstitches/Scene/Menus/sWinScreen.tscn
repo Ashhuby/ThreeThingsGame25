@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://bagq381rthodt"]
 
 [ext_resource type="Script" path="res://Script/Menus/WinScreen.cs" id="1_hlqi0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhnoj"]
-bg_color = Color(1.44392e-07, 0.812586, 0.395563, 0.223529)
+[ext_resource type="Texture2D" uid="uid://db2d7mdiylclo" path="res://Assets/UI Stuff/Report Card.png" id="2_3hg2y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s0vnm"]
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_ww8dd"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ai00o"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="WinScreen" type="Control" node_paths=PackedStringArray("timeTakenLabel", "livesLeft")]
 layout_mode = 3
@@ -25,13 +25,12 @@ script = ExtResource("1_hlqi0")
 timeTakenLabel = NodePath("BeatTime")
 livesLeft = NodePath("LivesLeft")
 
-[node name="Blur" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 326.0
-offset_bottom = 749.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_yhnoj")
+[node name="Blur" type="Sprite2D" parent="."]
+position = Vector2(233, 325)
+texture = ExtResource("2_3hg2y")
 
 [node name="YouWin" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 27.0
 offset_top = 67.0
@@ -43,20 +42,20 @@ horizontal_alignment = 1
 
 [node name="LivesLeft" type="Label" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 188.0
-offset_right = 291.0
-offset_bottom = 281.0
+offset_left = 190.0
+offset_top = 175.0
+offset_right = 449.0
+offset_bottom = 268.0
 text = "Lives Error"
 label_settings = SubResource("LabelSettings_ww8dd")
 horizontal_alignment = 1
 
 [node name="BeatTime" type="Label" parent="."]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 308.0
-offset_right = 260.0
-offset_bottom = 401.0
+offset_left = 219.0
+offset_top = 279.0
+offset_right = 408.0
+offset_bottom = 372.0
 text = "Timer Error"
 label_settings = SubResource("LabelSettings_ai00o")
 horizontal_alignment = 1

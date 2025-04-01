@@ -19,16 +19,26 @@ public partial class Player : CharacterBody2D
 	[Export] GameManager gameManager;
 	[Export] float maxJumpHeight = 200;
 	[Export] public Vector2 startingPostion = new Vector2(101, 542);
-	[Export] Sprite2D StandingSprite;
+	[Export] AnimatedSprite2D RunningSprite;
 	[Export] Area2D StandingHitBox;
-	[Export] Sprite2D CrounchingSprite;
+	[Export] AnimatedSprite2D CrounchingSprite;
 	[Export] Area2D CrounchingHitBox;
 	[Export] AnimationPlayer animationPlayer;
 	[Export] Node2D SpeechBubble;
 	[Export] HeartContainer heartContainer;
+	private AnimatedSprite2D calvin;
+	private AnimatedSprite2D slide;
 	public override void _Ready()
 	{
-		StandingSprite.Visible = true;
+		// Just checks if any of the nonsense that I made is actually there
+		calvin = GetNode<AnimatedSprite2D>("Running/Calvin");
+		if (calvin == null){
+			GD.Print("Ain't no Calvin!");
+		}
+		slide = GetNode<AnimatedSprite2D>("Crouching/PlayerCrounchSprite");
+		if (slide == null){
+			GD.Print("We ain't sliding!");
+		}
 		CrounchingSprite.Visible = false;
 		heartContainer.SetHearts(baseHealth);
 	}
@@ -71,8 +81,10 @@ public partial class Player : CharacterBody2D
 			if(Input.IsActionJustPressed("Jump") && Position.Y == startingPostion.Y)
 			{
 				//GD.Print("Jumping");
+				
 				Stand();
 				velocity.Y = JumpStrength; // Ensure jump applies correctly
+				calvin.Play("jump");  // Plays the Jump Animation.
 			}
 
 			//Prevent player from falling below the starting position
@@ -88,8 +100,14 @@ public partial class Player : CharacterBody2D
 				Position = new Vector2(Position.X, maxJumpHeight);
 				velocity.Y = 0; // Stop upward movement
 				gravityMultiplier = 1.5f;
+				
 			}
-
+			//More Nnamdi Code
+			// If the player 'hits the floor', stop playing the jump animation.
+			if(Position.Y == startingPostion.Y &&  velocity.Y >= 0 && calvin.Animation == "jump")
+			{
+				calvin.Play("default");
+			}
 			Velocity = velocity;
 			MoveAndSlide();
 		}
@@ -99,18 +117,35 @@ public partial class Player : CharacterBody2D
 		
 		if(PlayerHardMode)
 		{
+			/* Nnamdi was here!!!
+			calvin.Play("slide");
+			calvin.AnimationFinished += WeSlidingNow;
+			*/
+			slide.Play("slide");
+			slide.Frame = 1;
 			animationPlayer.Play("Crouch");
+
+
 		}
 		else
 		{
+			slide.Play("slide");
+			slide.Frame = 1;
 			animationPlayer.Play("CrouchNM");
 		}
 		
 		
 	}
+
+ /* More Nnamdi code
+	private void WeSlidingNow(){
+		calvin.Play("default"); // return to running
+		calvin.AnimationFinished -= WeSlidingNow; // Ends the slide animation
+	}
+*/
 	private void Stand()
 	{
-		StandingSprite.Visible = true;
+		RunningSprite.Visible = true;
 		CrounchingSprite.Visible = false;
 		//Hitboxes
 		StandingHitBox.Monitorable = true;

@@ -1,20 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://dafqpowex2btn"]
+[gd_scene load_steps=15 format=3 uid="uid://dafqpowex2btn"]
 
-[ext_resource type="Texture2D" uid="uid://cn8s0cylt1v2k" path="res://Scene/Player/Calvin Q Later.png" id="1_5klqd"]
 [ext_resource type="Script" path="res://Script/Menus/MainMenu.cs" id="1_h26pm"]
 [ext_resource type="PackedScene" uid="uid://pyhub6ro3kcb" path="res://Scene/World/Tooty/sTooty.tscn" id="2_1tprr"]
+[ext_resource type="Texture2D" uid="uid://i3kynr5d4s2r" path="res://Assets/UI Stuff/Title.png" id="2_eyybu"]
 [ext_resource type="Script" path="res://Script/Menus/HowToPlayScreen.cs" id="2_t8dnf"]
 [ext_resource type="PackedScene" uid="uid://bwoirlfiuypr6" path="res://Scene/World/Tooty/sHowToPlayTitle.tscn" id="3_6dtdg"]
+[ext_resource type="Texture2D" uid="uid://p1cjvm8q4v41" path="res://Assets/Buttons/Buttons/Play.png" id="3_l1no3"]
+[ext_resource type="Texture2D" uid="uid://dssrb1bdo3s46" path="res://Assets/Buttons/Buttons/Play Select.png" id="4_aso3a"]
 [ext_resource type="PackedScene" uid="uid://dl3mpme2yyayw" path="res://Scene/World/Tooty/sExitButton.tscn" id="4_ql5wx"]
+[ext_resource type="Texture2D" uid="uid://bthtswmmu060r" path="res://Assets/Buttons/Buttons/Info.png" id="5_ksxhg"]
+[ext_resource type="Texture2D" uid="uid://b7ofx6wj8gau0" path="res://Assets/Buttons/Buttons/Info Select.png" id="6_2ktr1"]
+[ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="7_ejhlj"]
+[ext_resource type="Texture2D" uid="uid://ddsuk3ntt3n3y" path="res://Assets/Buttons/Buttons/Exit Select.png" id="8_qfal4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widtt"]
 bg_color = Color(0.913725, 0.756863, 0.976471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj8cf"]
 bg_color = Color(0.227451, 0.266667, 0.4, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vcsyr"]
-font_size = 150
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("HowToPlay")]
 layout_mode = 3
@@ -56,27 +59,9 @@ offset_right = 1315.0
 offset_bottom = 744.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hj8cf")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -367.0
-offset_top = 71.0
-offset_right = 1144.0
-offset_bottom = 276.0
-grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-text = "Snitches Get Stitches
-"
-label_settings = SubResource("LabelSettings_vcsyr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CalvinQLater" type="Sprite2D" parent="Title"]
-position = Vector2(34, -40)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5klqd")
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(558, 144)
+texture = ExtResource("2_eyybu")
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 1
@@ -92,43 +77,41 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayNM" type="Button" parent="Buttons"]
+[node name="PlayNM" type="TextureButton" parent="Buttons"]
 layout_mode = 0
-offset_left = -332.0
-offset_top = -23.0
-offset_right = 8.0
-offset_bottom = 54.0
-theme_override_font_sizes/font_size = 50
-text = "Normal "
+offset_left = -341.0
+offset_top = -11.0
+offset_right = -1.0
+offset_bottom = 89.0
+texture_normal = ExtResource("3_l1no3")
+texture_hover = ExtResource("4_aso3a")
 
 [node name="PlayHM" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = -23.0
-offset_right = 301.0
-offset_bottom = 54.0
+offset_left = 16.0
+offset_top = -9.0
+offset_right = 293.0
+offset_bottom = 68.0
 theme_override_font_sizes/font_size = 50
 text = "Hard"
 
-[node name="HowToPlay" type="Button" parent="Buttons"]
+[node name="HowToPlay" type="TextureButton" parent="Buttons"]
 layout_mode = 0
-offset_left = -141.0
-offset_top = 70.0
-offset_right = 161.0
-offset_bottom = 147.0
-theme_override_font_sizes/font_size = 50
-text = "How To Play
-"
+offset_left = -177.0
+offset_top = 106.0
+offset_right = 125.0
+offset_bottom = 206.0
+texture_normal = ExtResource("5_ksxhg")
+texture_hover = ExtResource("6_2ktr1")
 
-[node name="Exit" type="Button" parent="Buttons"]
+[node name="Exit" type="TextureButton" parent="Buttons"]
 layout_mode = 0
-offset_left = -46.0
-offset_top = 161.0
-offset_right = 51.0
-offset_bottom = 238.0
-theme_override_font_sizes/font_size = 50
-text = "Exit
-"
+offset_left = -158.0
+offset_top = 227.0
+offset_right = 142.0
+offset_bottom = 327.0
+texture_normal = ExtResource("7_ejhlj")
+texture_hover = ExtResource("8_qfal4")
 
 [node name="HowToPlayScreen" type="Control" parent="."]
 visible = false

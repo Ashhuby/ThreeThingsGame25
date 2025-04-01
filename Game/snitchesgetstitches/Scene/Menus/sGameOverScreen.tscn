@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds0o1gvq8g2yd"]
+[gd_scene load_steps=7 format=3 uid="uid://ds0o1gvq8g2yd"]
 
 [ext_resource type="Script" path="res://Script/Menus/GameOverScreen.cs" id="1_sssn7"]
+[ext_resource type="Texture2D" uid="uid://401shtaovxdn" path="res://Assets/Buttons/Buttons/Retry.png" id="2_akl2k"]
+[ext_resource type="Texture2D" uid="uid://d3tg1qkg62w1v" path="res://Assets/Buttons/Buttons/Retry Select.png" id="3_32qfq"]
+[ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="4_bq07p"]
+[ext_resource type="Texture2D" uid="uid://ddsuk3ntt3n3y" path="res://Assets/Buttons/Buttons/Exit Select.png" id="5_duydm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7i7xf"]
 font_size = 256
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruxf2"]
-bg_color = Color(0.933333, 0.396078, 0.482353, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lgt1"]
-bg_color = Color(0.933333, 0.396078, 0.482353, 1)
 
 [node name="GameOverScreen" type="Control" node_paths=PackedStringArray("Score")]
 layout_mode = 3
@@ -73,25 +71,23 @@ offset_bottom = 106.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Replay" type="Button" parent="Blur/Buttons"]
+[node name="Replay" type="TextureButton" parent="Blur/Buttons"]
 layout_mode = 0
-offset_left = -21.0
-offset_right = 67.0
-offset_bottom = 31.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ruxf2")
-text = "Play Again
-"
+offset_left = -160.0
+offset_top = -19.0
+offset_right = 140.0
+offset_bottom = 81.0
+texture_normal = ExtResource("2_akl2k")
+texture_hover = ExtResource("3_32qfq")
 
-[node name="Exit" type="Button" parent="Blur/Buttons"]
+[node name="Exit" type="TextureButton" parent="Blur/Buttons"]
 layout_mode = 0
-offset_top = 36.0
-offset_right = 37.0
-offset_bottom = 67.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_5lgt1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5lgt1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5lgt1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5lgt1")
-text = "Exit"
+offset_left = -148.0
+offset_top = 92.0
+offset_right = 152.0
+offset_bottom = 192.0
+texture_normal = ExtResource("4_bq07p")
+texture_hover = ExtResource("5_duydm")
 
 [node name="TextureButton" type="TextureButton" parent="Blur/Buttons"]
 layout_mode = 0
