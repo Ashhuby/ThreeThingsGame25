@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ludv2ibt1sny"]
+[gd_scene load_steps=18 format=3 uid="uid://ludv2ibt1sny"]
 
+[ext_resource type="Script" path="res://Script/World/Areas/ParallaxBackground.cs" id="1_flgjn"]
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_w8mho"]
 [ext_resource type="PackedScene" uid="uid://qyel3mk7mm5q" path="res://Scene/Player/sPlayer.tscn" id="2_83yfe"]
+[ext_resource type="Texture2D" uid="uid://tnb1orym324f" path="res://Assets/Background/Background.png" id="2_bkg7q"]
 [ext_resource type="PackedScene" uid="uid://k3147nov8ih4" path="res://Scene/World/UI/sHeartContainer.tscn" id="3_sq5sv"]
 [ext_resource type="PackedScene" uid="uid://c42l8xnf76hvb" path="res://Scene/World/Manager/sGameManager.tscn" id="4_tel6m"]
 [ext_resource type="PackedScene" uid="uid://xmyorg0m0fi7" path="res://Scene/World/UI/sWinProgress.tscn" id="5_a5sex"]
@@ -23,11 +25,17 @@ bg_color = Color(0.572062, 0.632363, 0.378464, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57ggf"]
 bg_color = Color(0.326981, 0.365932, 0.192136, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ta4ql"]
+font_size = 64
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Node2D" groups=["Hazards"]]
 
 [node name="BackGround" type="Node2D" parent="."]
 
 [node name="BG" type="Panel" parent="BackGround"]
+visible = false
 offset_left = -108.0
 offset_top = -68.0
 offset_right = 1353.0
@@ -35,6 +43,7 @@ offset_bottom = 674.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_01q13")
 
 [node name="Floor" type="Panel" parent="BackGround"]
+visible = false
 offset_left = -39.0
 offset_top = 526.0
 offset_right = 1255.0
@@ -42,6 +51,7 @@ offset_bottom = 656.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fish4")
 
 [node name="Wall" type="Panel" parent="BackGround"]
+visible = false
 offset_left = -46.0
 offset_top = 80.0
 offset_right = 1273.0
@@ -49,11 +59,24 @@ offset_bottom = 537.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwyue")
 
 [node name="Panel" type="Panel" parent="BackGround"]
+visible = false
 offset_left = -94.0
 offset_top = -14.0
 offset_right = 1298.0
 offset_bottom = 90.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_57ggf")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="BackGround"]
+script = ExtResource("1_flgjn")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackGround/ParallaxBackground"]
+motion_mirroring = Vector2(1400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(575, 306)
+scale = Vector2(2, 2)
+texture = ExtResource("2_bkg7q")
 
 [node name="Spawner" type="Node2D" parent="."]
 
@@ -76,7 +99,7 @@ offset_bottom = 116.0
 
 [node name="EndlessGameManager" parent="." node_paths=PackedStringArray("EndlessscoreLabel", "EndlesshealthLabel", "Endlessplayer", "EndlessgameOverScreen", "EndlesswinScreen", "EndlessobjectSpawner", "EndlessgameTimer") instance=ExtResource("4_tel6m")]
 script = ExtResource("5_mfecy")
-EndLessGameManagerHardMode = true
+EndLessGameManagerHardMode = false
 EndlessscoreLabel = NodePath("Score")
 EndlesshealthLabel = NodePath("Health")
 Endlessplayer = NodePath("../Player/Player")
@@ -86,6 +109,7 @@ EndlessobjectSpawner = NodePath("../Spawner/ObjectSpawner")
 EndlessgameTimer = NodePath("../GameTimer")
 
 [node name="WinProgress" parent="EndlessGameManager" instance=ExtResource("5_a5sex")]
+visible = false
 offset_left = 78.0
 offset_top = 27.0
 offset_right = 78.0
@@ -93,10 +117,11 @@ offset_bottom = 27.0
 scale = Vector2(2.52, 1.96)
 
 [node name="Score" type="Label" parent="EndlessGameManager"]
-offset_left = 182.0
+offset_left = 329.0
 offset_top = 31.0
-offset_right = 930.0
+offset_right = 794.0
 offset_bottom = 66.0
+label_settings = SubResource("LabelSettings_ta4ql")
 
 [node name="Health" type="Label" parent="EndlessGameManager"]
 visible = false
@@ -126,3 +151,7 @@ position = Vector2(1056, 388)
 [node name="TeacherWinState" parent="WinState" instance=ExtResource("8_g2d2w")]
 
 [node name="GameTimer" parent="." instance=ExtResource("9_igd54")]
+
+[connection signal="area_entered" from="EndlessGameManager/SuccessfulAvoidanceArea" to="EndlessGameManager" method="endlessOnEtner"]
+
+[editable path="EndlessGameManager"]

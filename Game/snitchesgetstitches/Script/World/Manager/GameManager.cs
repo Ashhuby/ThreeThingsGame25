@@ -14,6 +14,7 @@ public partial class GameManager : Node2D
 	[Export] WinProgress winProgress;
 	[Export] Node2D WinState;
 	[Export] GameTimer gameTimer;
+	[Export] ParallaxBackground RepeatingBackground;
 	public int score = 0;
 	public int health = 0;
 	public bool IsGameOver = false;
@@ -108,6 +109,9 @@ public partial class GameManager : Node2D
 			// Show Win Screen
 			winScreen.Visible = true;
 
+			//Stop BG Moving
+			RepeatingBackground.GameWin();
+
 			// Hide progress bar and health bar and hearts
 			winProgress.Visible = false;
 			healthLabel.Visible = false;
@@ -144,6 +148,7 @@ public partial class GameManager : Node2D
 		gameOverScreen.Visible = true;
 		objectSpawner.is_Spawning = false;
 		player.CanMove = false;
+		RepeatingBackground.GameWin();	//Stop BG Moving
 
 		gameOverScreen.SetScore(score);
 

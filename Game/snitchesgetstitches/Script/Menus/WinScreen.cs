@@ -18,8 +18,8 @@ public partial class WinScreen : Control
 	public override void _Process(double delta)
 	{
 		
-		timeTakenLabel.Text = "Snitch Time: \n" + Math.Round(timeTaken, 3) + "s";	//Round to 3 decimal places
-		livesLeft.Text = "Lives Left: \n" + lives;
+		timeTakenLabel.Text =  Math.Round(timeTaken, 2) + "s";	//Round to 3 decimal places
+		livesLeft.Text =  $"{lives}";
 		
 		MainMenu.HM = false;	//Reset HardMode to false
 	}

@@ -31,9 +31,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swdad"]
 size = Vector2(98, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fgch"]
-size = Vector2(85.9933, 174.086)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgqrp"]
 animations = [{
 "frames": [{
@@ -127,6 +124,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fgch"]
+size = Vector2(78.9446, 174.086)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o36ap"]
 animations = [{
 "frames": [{
@@ -178,7 +178,7 @@ tracks/0/path = NodePath("Running/Calvin:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.433333),
+"times": PackedFloat32Array(0, 0.00924786, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -190,7 +190,7 @@ tracks/1/path = NodePath("Running/StandingHitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.433333),
+"times": PackedFloat32Array(0, 0.00928116, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -202,7 +202,7 @@ tracks/2/path = NodePath("Crouching/PlayerCrounchSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.466667),
+"times": PackedFloat32Array(0, 0.00928116, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -214,7 +214,7 @@ tracks/3/path = NodePath("Crouching/CrouchingHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.466667),
+"times": PackedFloat32Array(0, 0.00924786, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -378,19 +378,19 @@ shape = SubResource("RectangleShape2D_swdad")
 
 [node name="Running" type="Node2D" parent="."]
 
-[node name="StandingHitBox" type="Area2D" parent="Running"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Running/StandingHitBox"]
-position = Vector2(0.5, -38.5002)
-scale = Vector2(0.709358, 1.14311)
-shape = SubResource("RectangleShape2D_2fgch")
-
 [node name="Calvin" type="AnimatedSprite2D" parent="Running"]
 texture_filter = 1
 position = Vector2(-26, -63)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tgqrp")
 autoplay = "default"
+
+[node name="StandingHitBox" type="Area2D" parent="Running"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Running/StandingHitBox"]
+position = Vector2(-2.00001, -38.5002)
+scale = Vector2(0.709358, 1.14311)
+shape = SubResource("RectangleShape2D_2fgch")
 
 [node name="Crouching" type="Node2D" parent="."]
 
@@ -402,8 +402,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_o36ap")
 animation = &"slide"
 autoplay = "slide"
-frame = 5
-frame_progress = 0.52885
+frame_progress = 0.773133
 
 [node name="CrouchingHitBox" type="Area2D" parent="Crouching"]
 

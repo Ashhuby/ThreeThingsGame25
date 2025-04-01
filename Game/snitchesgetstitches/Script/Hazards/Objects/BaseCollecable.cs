@@ -7,6 +7,7 @@ public partial class BaseCollecable : Node2D
 	
 	[Export] public float Speed = -9;
 	public int originSpawnerIndex = -1;
+	const float TargetFrameRate = 60f;
 	
 	public override void _Ready()
 	{
@@ -15,7 +16,7 @@ public partial class BaseCollecable : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position += new Vector2(Speed, 0);
+		Position += new Vector2(Speed * (float)delta * TargetFrameRate, 0);
 	}
 
 	private void _on_collectable_hit_box_area_entered(Area2D area)

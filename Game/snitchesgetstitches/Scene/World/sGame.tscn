@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caa6oxgxvdafd"]
+[gd_scene load_steps=17 format=3 uid="uid://caa6oxgxvdafd"]
 
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_6iikx"]
 [ext_resource type="PackedScene" uid="uid://c42l8xnf76hvb" path="res://Scene/World/Manager/sGameManager.tscn" id="1_g444i"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddjrwa6emmp5o" path="res://Scene/World/WinState/sTeacherWinState.tscn" id="6_g0jbu"]
 [ext_resource type="PackedScene" uid="uid://bagq381rthodt" path="res://Scene/Menus/sWinScreen.tscn" id="6_senq4"]
 [ext_resource type="PackedScene" uid="uid://dh0dxsvm1eue6" path="res://Scene/World/UI/GameTimer.tscn" id="8_pbf62"]
+[ext_resource type="AudioStream" uid="uid://050nt5s2n81a" path="res://Audio/2023-05-15_-_Chicken_Chase_-_www.FesliyanStudios.com.mp3" id="12_hhpnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01q13"]
 bg_color = Color(0.619117, 0.589363, 1, 1)
@@ -92,7 +93,7 @@ offset_top = 12.0
 offset_right = 67.0
 offset_bottom = 116.0
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel", "healthLabel", "player", "gameOverScreen", "winScreen", "objectSpawner", "winProgress", "WinState", "gameTimer") instance=ExtResource("1_g444i")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("scoreLabel", "healthLabel", "player", "gameOverScreen", "winScreen", "objectSpawner", "winProgress", "WinState", "gameTimer", "RepeatingBackground") instance=ExtResource("1_g444i")]
 scoreLabel = NodePath("Score")
 healthLabel = NodePath("Health")
 player = NodePath("../Player/Player")
@@ -102,6 +103,7 @@ objectSpawner = NodePath("../Spawner/ObjectSpawner")
 winProgress = NodePath("WinProgress")
 WinState = NodePath("../WinState")
 gameTimer = NodePath("../GameTimer")
+RepeatingBackground = NodePath("../BackGround/ParallaxBackground")
 
 [node name="WinProgress" parent="GameManager" instance=ExtResource("4_2ci1i")]
 offset_left = 78.0
@@ -137,6 +139,7 @@ anchor_bottom = 0.5
 
 [node name="WinScreen" parent="Menus" instance=ExtResource("6_senq4")]
 visible = false
+z_index = 10
 
 [node name="WinState" type="Node2D" parent="."]
 visible = false
@@ -145,3 +148,8 @@ position = Vector2(1056, 388)
 [node name="TeacherWinState" parent="WinState" instance=ExtResource("6_g0jbu")]
 
 [node name="GameTimer" parent="." instance=ExtResource("8_pbf62")]
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_hhpnf")
+autoplay = true
+parameters/looping = true

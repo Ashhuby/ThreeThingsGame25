@@ -42,19 +42,19 @@ horizontal_alignment = 1
 
 [node name="LivesLeft" type="Label" parent="."]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 175.0
-offset_right = 449.0
-offset_bottom = 268.0
+offset_left = 187.0
+offset_top = 185.0
+offset_right = 446.0
+offset_bottom = 278.0
 text = "Lives Error"
 label_settings = SubResource("LabelSettings_ww8dd")
 horizontal_alignment = 1
 
 [node name="BeatTime" type="Label" parent="."]
 layout_mode = 0
-offset_left = 219.0
+offset_left = 213.0
 offset_top = 279.0
-offset_right = 408.0
+offset_right = 402.0
 offset_bottom = 372.0
 text = "Timer Error"
 label_settings = SubResource("LabelSettings_ai00o")
@@ -67,26 +67,26 @@ offset_bottom = 40.0
 
 [node name="ReplayNM" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 449.0
-offset_right = 233.0
-offset_bottom = 480.0
+offset_left = 51.0
+offset_top = 371.0
+offset_right = 238.0
+offset_bottom = 402.0
 text = "Replay in normal mode"
 
 [node name="ReplayHM" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 497.0
-offset_right = 214.0
-offset_bottom = 528.0
+offset_left = 59.0
+offset_top = 454.0
+offset_right = 227.0
+offset_bottom = 485.0
 text = "Replay in hard mode"
 
 [node name="Exit" type="Button" parent="Buttons"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 546.0
-offset_right = 153.0
-offset_bottom = 577.0
+offset_left = 84.0
+offset_top = 545.0
+offset_right = 190.0
+offset_bottom = 576.0
 text = "Exit to menu"
 
 [connection signal="pressed" from="Buttons/ReplayNM" to="." method="_on_replay_nm_pressed"]

@@ -20,16 +20,7 @@ public partial class EndlessGameManager : Node2D
 
 	public override void _Ready()
 	{
-
-		if(MainMenu.HM || WinScreen.WinScreenHM)
-		{
-			EndLessGameManagerHardMode = true;
-		}
-		else
-		{
-			EndLessGameManagerHardMode = false;
-		}
-		
+	
 		Endlesshealth = Endlessplayer.baseHealth; 	
 		if(EndLessGameManagerHardMode)
 		{
@@ -56,7 +47,7 @@ public partial class EndlessGameManager : Node2D
 		
 	}
 
-	private void endlessArea(Area2D area)
+	private void endlessOnEtner(Area2D area)
 	{
 		if(area.GetParent() is BaseHazard && !EndlessIsGameOver)
 		{
@@ -75,6 +66,8 @@ public partial class EndlessGameManager : Node2D
 		EndlessgameOverScreen.Visible = true;
 		EndlessobjectSpawner.is_Spawning = false;
 		Endlessplayer.CanMove = false;
+		EndlessscoreLabel.Visible = false; //Hide score
+		
 
 		EndlessgameOverScreen.SetScore(Endlessscore);
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dafqpowex2btn"]
+[gd_scene load_steps=16 format=3 uid="uid://dafqpowex2btn"]
 
 [ext_resource type="Script" path="res://Script/Menus/MainMenu.cs" id="1_h26pm"]
 [ext_resource type="PackedScene" uid="uid://pyhub6ro3kcb" path="res://Scene/World/Tooty/sTooty.tscn" id="2_1tprr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b7ofx6wj8gau0" path="res://Assets/Buttons/Buttons/Info Select.png" id="6_2ktr1"]
 [ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="7_ejhlj"]
 [ext_resource type="Texture2D" uid="uid://ddsuk3ntt3n3y" path="res://Assets/Buttons/Buttons/Exit Select.png" id="8_qfal4"]
+[ext_resource type="AudioStream" uid="uid://bmjjhvgm38e6a" path="res://Audio/2017-01-25_-_Funktastic_-_David_Fesliyan.mp3" id="13_7sofx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widtt"]
 bg_color = Color(0.913725, 0.756863, 0.976471, 1)
@@ -136,6 +137,10 @@ position = Vector2(563, 305)
 position = Vector2(827, 406)
 scale = Vector2(5, 5)
 HowToPlay = NodePath("..")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_7sofx")
+autoplay = true
 
 [connection signal="pressed" from="Buttons/PlayNM" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/PlayHM" to="." method="_on_play_hm_pressed"]
