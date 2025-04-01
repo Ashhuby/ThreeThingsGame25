@@ -15,9 +15,12 @@ public partial class GameManager : Node2D
 	[Export] Node2D WinState;
 	[Export] GameTimer gameTimer;
 	[Export] ParallaxBackground RepeatingBackground;
+	[Export] AudioStreamPlayer GameOverSFX;
+	[Export] AudioStreamPlayer2D Music;
 	public int score = 0;
 	public int health = 0;
 	public bool IsGameOver = false;
+	bool GameHasEnded = false;
 	public bool IsGameWon = false;
 	bool walkingtoteacher = false;
 	
@@ -55,7 +58,11 @@ public partial class GameManager : Node2D
 
 		if(IsGameOver)
 		{
-			GameOver();
+			if(!GameHasEnded)
+			{
+				GameOver();
+				GameHasEnded = true;
+			}
 		}
 
 		//Update Progress Bar
@@ -144,6 +151,7 @@ public partial class GameManager : Node2D
 
 	private void GameOver()
 	{
+
 		healthLabel.Text = "Health: 0";	//Make sure health is 0
 		gameOverScreen.Visible = true;
 		objectSpawner.is_Spawning = false;
@@ -155,6 +163,13 @@ public partial class GameManager : Node2D
 		MainMenu.HM = false;	//Reset HardMode to false
 		WinScreen.WinScreenHM = false;	//Reset HardMode to false
 
+		//AUDIO
+		if(!GameOverSFX.Playing)
+		{
+			GameOverSFX.Play();
+		}
+		Music.Stop();
+		
 
 	}
 		

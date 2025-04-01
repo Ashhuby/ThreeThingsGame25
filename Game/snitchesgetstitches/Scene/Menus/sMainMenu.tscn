@@ -141,6 +141,7 @@ HowToPlay = NodePath("..")
 [node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_7sofx")
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Buttons/PlayNM" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/PlayHM" to="." method="_on_play_hm_pressed"]
