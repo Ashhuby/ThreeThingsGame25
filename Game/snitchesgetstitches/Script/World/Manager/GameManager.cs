@@ -70,7 +70,7 @@ public partial class GameManager : Node2D
 				player.CanMove = false;
 			}
 
-			//Stop 'Movement' of all hazards
+			//Stop/ slow 'Movement' of all hazards to make it look likw calvin has stopped running.
 			foreach(Node2D node in GetTree().Root.GetChildren())
 			{
 				if(node is BaseHazard)
@@ -85,6 +85,18 @@ public partial class GameManager : Node2D
 						hazard.Speed = -2;	
 					}
 				}	
+				if(node is BaseCollecable)
+				{
+					BaseCollecable collectable = (BaseCollecable)node;
+					if(collectable.originSpawnerIndex == 2)	// This means its hazard on floor.
+					{
+						collectable.Speed = 0;
+					}
+					if(collectable.originSpawnerIndex == 1 || collectable.originSpawnerIndex == 0)	// This means its hazard on ceiling.
+					{
+						collectable.Speed = -2;	
+					}
+				}
 			}
 			// Walk player to teacher
 			if(!walkingtoteacher)
@@ -96,9 +108,10 @@ public partial class GameManager : Node2D
 			// Show Win Screen
 			winScreen.Visible = true;
 
-			// Hide progress bar and health bar
+			// Hide progress bar and health bar and hearts
 			winProgress.Visible = false;
 			healthLabel.Visible = false;
+			player.HideHearts();
 
 			// Update Win Screen
 			gameTimer.stopTimer();

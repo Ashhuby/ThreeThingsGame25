@@ -44,7 +44,7 @@ public partial class ObjectSpawner : Node2D
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		int index = rng.RandiRange(0,SpawnPoints.Length-1);
 
-		int hazardOrCollectable = rng.RandiRange(0,1);
+		int hazardOrCollectable = rng.RandiRange(0,1);	//50% chance to spawn a hazard or collectable.
 
 		PackedScene objectToSpawn = hazardOrCollectable == 0 ? Object : Collectable;
 
@@ -79,7 +79,6 @@ public partial class ObjectSpawner : Node2D
 			{
 				flyingObject.Speed = -10;
 			}
-			flyingObject.AddToGroup("Hazards");
 		}
 
 		

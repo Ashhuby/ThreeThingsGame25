@@ -17,6 +17,7 @@ public partial class Player : CharacterBody2D
 
 
 	[Export] GameManager gameManager;
+	[Export] EndlessGameManager endlessGameManager;
 	[Export] float maxJumpHeight = 200;
 	[Export] public Vector2 startingPostion = new Vector2(101, 542);
 	[Export] Sprite2D StandingSprite;
@@ -126,7 +127,8 @@ public partial class Player : CharacterBody2D
 		
 		baseHealth -= DamageAmount;
 		heartContainer.RemoveHearts(DamageAmount);
-		gameManager.UpdateHealth(baseHealth);
+		gameManager?.UpdateHealth(baseHealth);
+		endlessGameManager?.EndlessUpdateHealth(baseHealth);
 		//GD.Print("Player Health: " + baseHealth);
 		if(baseHealth <= 0)
 		{
@@ -136,14 +138,20 @@ public partial class Player : CharacterBody2D
 	private void Die()
 	{
 		//QueueFree();
+		invincible = true;
 		GD.Print("Player has died");	
-		gameManager.IsGameOver = true;
+		if(gameManager != null) gameManager.IsGameOver = true;
+		if(endlessGameManager != null) endlessGameManager.EndlessIsGameOver = true;
 	}
 	public void WalkTeacherAnimation()
 	{
 		animationPlayer.Play("WalkToTeacher");
 		SpeechBubble.Visible = true;
 
+	}
+	public void HideHearts()
+	{
+		heartContainer.Visible = false;
 	}
 		
 }

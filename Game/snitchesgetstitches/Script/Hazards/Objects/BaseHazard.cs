@@ -23,10 +23,14 @@ public partial class BaseHazard : Node2D
 	{
 		if(area.GetParent().GetParent() is Player)
 		{
+			
 			//GD.Print("Player Hit");
 			Player p = (Player)area.GetParent().GetParent();
 			p.PlayerTakesDamage(1);
-			QueueFree();
+			if(!p.invincible)
+			{
+				QueueFree();
+			}
 		}
 
 	}

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.IO;
 
 public partial class BaseCollecable : Node2D
 {
@@ -22,9 +23,38 @@ public partial class BaseCollecable : Node2D
 		if(area.GetParent().GetParent() is Player)
 		{
 			Player p = (Player)area.GetParent().GetParent();
-			GameManager gm = p.GetParent().GetParent().GetNode<GameManager>("GameManager");
-			gm.score += 3;	// Adds 3 to score.
-			QueueFree();
+			try
+			{
+				Node2D path;
+				try
+				{
+					path = p?.GetParent()?.GetParent()?.GetNodeOrNull<Node2D>("GameManager");
+				}
+				catch{path = null;}
+				
+				if(path is GameManager)
+				{
+					GameManager gm = (GameManager)path;
+              	    if (gm != null) gm.score += 3;  // Adds 3 to score.
+				}
+				
+            }
+			catch
+			{
+				GD.Print("No GM");
+			}
+			try
+			{
+				EndlessGameManager egm = p.GetParent().GetParent().GetNode<EndlessGameManager>("EndlessGameManager");
+				if(egm != null) egm.Endlessscore += 3;	// Adds 3 to score.
+			}
+			catch{}
+			
+			if(!p.invincible)	
+			{
+				QueueFree();
+			}
+			
 		}
 
 	}
