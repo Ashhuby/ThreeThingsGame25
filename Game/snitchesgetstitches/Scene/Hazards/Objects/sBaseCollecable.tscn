@@ -12,7 +12,7 @@ Speed = -11.0
 
 [node name="CollectableSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 texture = ExtResource("2_1kyyu")
 
 [node name="CollectableHitBox" type="Area2D" parent="."]
