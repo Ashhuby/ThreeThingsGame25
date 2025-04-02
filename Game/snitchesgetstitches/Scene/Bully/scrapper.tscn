@@ -41,8 +41,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="Scrapper" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_hbpbf")
 autoplay = "default"
-frame_progress = 0.787033
+frame_progress = 0.373052
