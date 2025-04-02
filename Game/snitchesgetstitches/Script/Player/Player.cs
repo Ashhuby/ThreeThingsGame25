@@ -195,6 +195,8 @@ public partial class Player : CharacterBody2D
 		GD.Print("Player has died");	
 		if(gameManager != null) gameManager.IsGameOver = true;
 		if(endlessGameManager != null) endlessGameManager.EndlessIsGameOver = true;
+		calvin.Play("dead");
+		calvin.Frame = 1;
 	}
 	public async Task WalkTeacherAnimation()
 	{
