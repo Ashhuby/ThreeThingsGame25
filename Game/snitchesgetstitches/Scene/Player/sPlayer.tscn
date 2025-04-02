@@ -48,8 +48,8 @@
 [ext_resource type="AudioStream" uid="uid://n742xqwfh5lf" path="res://Audio/SFX/goofyaaahjump.mp3" id="38_a1u31"]
 [ext_resource type="AudioStream" uid="uid://bjvqiqvl2jnuq" path="res://Audio/SFX/halt.mp3" id="39_olj8o"]
 [ext_resource type="AudioStream" uid="uid://lvvvbr7bcv40" path="res://Audio/SFX/goofy-bonk.mp3" id="40_nh6hq"]
-[ext_resource type="AudioStream" uid="uid://d23xuhf8ity5g" path="res://Audio/SFX/record-zip-87715.mp3" id="41_wf408"]
 [ext_resource type="AudioStream" uid="uid://dbbdkxiggp3rt" path="res://Audio/SFX/Minecraft Glass Break - Sound Effect (HD).mp3" id="42_bibjf"]
+[ext_resource type="AudioStream" uid="uid://dwafbqmot3w2f" path="res://Audio/SFX/Homework Sound.mp3" id="49_vb2bu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swdad"]
 size = Vector2(98, 22)
@@ -535,7 +535,7 @@ stream = ExtResource("40_nh6hq")
 bus = &"SFX"
 
 [node name="GetHwkSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("41_wf408")
+stream = ExtResource("49_vb2bu")
 
 [node name="GlassBreakingSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("42_bibjf")

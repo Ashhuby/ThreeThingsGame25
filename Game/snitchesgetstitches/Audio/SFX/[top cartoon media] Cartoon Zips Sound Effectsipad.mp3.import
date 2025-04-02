@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8xjb6bjcu2jj"
+path="res://.godot/imported/[top cartoon media] Cartoon Zips Sound Effectsipad.mp3-88a197638c3cb61c2a139d8ee37a5b9f.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/[top cartoon media] Cartoon Zips Sound Effectsipad.mp3"
+dest_files=["res://.godot/imported/[top cartoon media] Cartoon Zips Sound Effectsipad.mp3-88a197638c3cb61c2a139d8ee37a5b9f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
