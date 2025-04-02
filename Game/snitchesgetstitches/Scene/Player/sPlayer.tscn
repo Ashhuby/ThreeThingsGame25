@@ -1,14 +1,22 @@
-[gd_scene load_steps=50 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=58 format=3 uid="uid://qyel3mk7mm5q"]
 
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
 [ext_resource type="Texture2D" uid="uid://debuio0uetcvk" path="res://Assets/Calvin/Calvin Running/Calvin Running00.png" id="2_xqdyw"]
+[ext_resource type="Texture2D" uid="uid://cn5pm1kkvgsdp" path="res://Assets/Calvin/Calvin Dead/Calvin Dead0.png" id="2_xsbrx"]
 [ext_resource type="Texture2D" uid="uid://di4j88ui1fdi" path="res://Assets/Calvin/Calvin Running/Calvin Running01.png" id="3_10dq0"]
+[ext_resource type="Texture2D" uid="uid://cly3omv1q1l7i" path="res://Assets/Calvin/Calvin Dead/Calvin Dead1.png" id="3_jg1lf"]
 [ext_resource type="PackedScene" uid="uid://dcp26otgtokxh" path="res://Scene/World/WinState/sCalTellsTeacher.tscn" id="3_l44ps"]
 [ext_resource type="Texture2D" uid="uid://vr0x8h6pjhou" path="res://Assets/Calvin/Calvin Running/Calvin Running02.png" id="4_tye2q"]
+[ext_resource type="Texture2D" uid="uid://crtp5fsnxb55d" path="res://Assets/Calvin/Calvin Dead/Calvin Dead2.png" id="4_vc1vm"]
 [ext_resource type="Texture2D" uid="uid://cd05u0ks61pq4" path="res://Assets/Calvin/Calvin Running/Calvin Running03.png" id="5_bppgv"]
+[ext_resource type="Texture2D" uid="uid://cbf2hfvgd3dfr" path="res://Assets/Calvin/Calvin Dead/Calvin Dead3.png" id="5_ohfrv"]
 [ext_resource type="Texture2D" uid="uid://cn5xq38lsnpve" path="res://Assets/Calvin/Calvin Running/Calvin Running04.png" id="6_sku7n"]
+[ext_resource type="Texture2D" uid="uid://bqw0ifg3lxt47" path="res://Assets/Calvin/Calvin Dead/Calvin Dead4.png" id="6_ypnja"]
+[ext_resource type="Texture2D" uid="uid://bihmljvxioc62" path="res://Assets/Calvin/Calvin Dead/Calvin Dead5.png" id="7_fcv6m"]
 [ext_resource type="Texture2D" uid="uid://dtxobqgopqym2" path="res://Assets/Calvin/Calvin Running/Calvin Running05.png" id="7_u20la"]
+[ext_resource type="Texture2D" uid="uid://dumb0fjixj562" path="res://Assets/Calvin/Calvin Dead/Calvin Dead6.png" id="8_jubgd"]
 [ext_resource type="Texture2D" uid="uid://bhl6i2fyr0ked" path="res://Assets/Calvin/Calvin Running/Calvin Running06.png" id="8_kddsl"]
+[ext_resource type="Texture2D" uid="uid://cfguixehvygmj" path="res://Assets/Calvin/Calvin Dead/Calvin Dead7.png" id="9_fyayo"]
 [ext_resource type="Texture2D" uid="uid://cvxcb2rgn8h2q" path="res://Assets/Calvin/Calvin Running/Calvin Running07.png" id="9_l1vt4"]
 [ext_resource type="Texture2D" uid="uid://bfi5835dx5bhs" path="res://Assets/Calvin/Calvin Running/Calvin Running08.png" id="10_0h7cq"]
 [ext_resource type="Texture2D" uid="uid://dqa6bojn27dxo" path="res://Assets/Calvin/Calvin Running/Calvin Running09.png" id="11_5rauw"]
@@ -45,6 +53,35 @@ size = Vector2(98, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgqrp"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xsbrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jg1lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vc1vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ohfrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ypnja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fcv6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jubgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fyayo")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_xqdyw")
@@ -433,8 +470,10 @@ texture_filter = 1
 position = Vector2(-26, -63)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tgqrp")
-animation = &"halt"
+animation = &"dead"
 autoplay = "default"
+frame = 7
+frame_progress = 1.0
 
 [node name="StandingHitBox" type="Area2D" parent="Running"]
 
