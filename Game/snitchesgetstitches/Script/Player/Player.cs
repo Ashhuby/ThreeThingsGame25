@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
 {
@@ -191,10 +192,14 @@ public partial class Player : CharacterBody2D
 		if(gameManager != null) gameManager.IsGameOver = true;
 		if(endlessGameManager != null) endlessGameManager.EndlessIsGameOver = true;
 	}
-	public void WalkTeacherAnimation()
+	public async Task WalkTeacherAnimation()
 	{
 		animationPlayer.Play("WalkToTeacher");
 		SpeechBubble.Visible = true;
+		// Wait for 1.2 seconds before playing "halt"
+		await Task.Delay(1600);
+		calvin.Play("halt");
+		calvin.Frame = 1;
 
 	}
 	public void HideHearts()

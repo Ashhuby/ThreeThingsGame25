@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ludv2ibt1sny"]
+[gd_scene load_steps=21 format=3 uid="uid://ludv2ibt1sny"]
 
 [ext_resource type="Script" path="res://Script/World/Areas/ParallaxBackground.cs" id="1_flgjn"]
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_w8mho"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0dxsvm1eue6" path="res://Scene/World/UI/GameTimer.tscn" id="9_igd54"]
 [ext_resource type="AudioStream" uid="uid://050nt5s2n81a" path="res://Audio/2023-05-15_-_Chicken_Chase_-_www.FesliyanStudios.com.mp3" id="13_yrsro"]
 [ext_resource type="AudioStream" uid="uid://d23xuhf8ity5g" path="res://Audio/SFX/record-zip-87715.mp3" id="14_dr2l8"]
+[ext_resource type="PackedScene" uid="uid://og51nrpbf2cg" path="res://Scene/Bully/scrapper.tscn" id="15_buswq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01q13"]
 bg_color = Color(0.619117, 0.589363, 1, 1)
@@ -163,6 +164,11 @@ parameters/looping = true
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_dr2l8")
+
+[node name="Scrapper" parent="." instance=ExtResource("15_buswq")]
+position = Vector2(-19, 431)
+scale = Vector2(2, 2)
+frame_progress = 0.701861
 
 [connection signal="area_entered" from="EndlessGameManager/SuccessfulAvoidanceArea" to="EndlessGameManager" method="endlessOnEtner"]
 

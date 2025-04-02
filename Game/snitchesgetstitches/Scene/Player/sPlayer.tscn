@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=48 format=3 uid="uid://qyel3mk7mm5q"]
 
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
 [ext_resource type="Texture2D" uid="uid://debuio0uetcvk" path="res://Assets/Calvin/Calvin Running/Calvin Running00.png" id="2_xqdyw"]
@@ -14,16 +14,26 @@
 [ext_resource type="Texture2D" uid="uid://dqa6bojn27dxo" path="res://Assets/Calvin/Calvin Running/Calvin Running09.png" id="11_5rauw"]
 [ext_resource type="Texture2D" uid="uid://cjbqfdvjitam8" path="res://Assets/Calvin/Calvin Running/Calvin Running10.png" id="12_ipse1"]
 [ext_resource type="Texture2D" uid="uid://dpjbhl1ny3cyc" path="res://Assets/Calvin/Calvin Running/Calvin Running11.png" id="13_2g222"]
+[ext_resource type="Texture2D" uid="uid://ddcek1l4kpre7" path="res://Assets/Calvin/Calvin Halt/Calvin Halt00.png" id="14_3mhqx"]
 [ext_resource type="Texture2D" uid="uid://bbcm7hw6f8uc7" path="res://Assets/Calvin/Calvin Jump/Calvin Jump0.png" id="14_poyp4"]
 [ext_resource type="Texture2D" uid="uid://ctw8ipig7r3a1" path="res://Assets/Calvin/Calvin Jump/Calvin Jump1.png" id="15_mresy"]
+[ext_resource type="Texture2D" uid="uid://cgcw66c6np6xr" path="res://Assets/Calvin/Calvin Halt/Calvin Halt01.png" id="15_ryfxm"]
 [ext_resource type="Texture2D" uid="uid://b8e2ikjinq11g" path="res://Assets/Calvin/Calvin Jump/Calvin Jump2.png" id="16_2js2q"]
+[ext_resource type="Texture2D" uid="uid://calockwrkhxa8" path="res://Assets/Calvin/Calvin Halt/Calvin Halt02.png" id="16_np1qd"]
+[ext_resource type="Texture2D" uid="uid://di7c83m1t4764" path="res://Assets/Calvin/Calvin Halt/Calvin Halt03.png" id="17_q7mbi"]
 [ext_resource type="Texture2D" uid="uid://bqdjqcildwmga" path="res://Assets/Calvin/Calvin Jump/Calvin Jump3.png" id="17_ytsum"]
+[ext_resource type="Texture2D" uid="uid://c3p3rb2xhv6d3" path="res://Assets/Calvin/Calvin Halt/Calvin Halt04.png" id="18_fhkov"]
 [ext_resource type="Texture2D" uid="uid://ccoa0m717cp7d" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide02.png" id="18_lg433"]
 [ext_resource type="Texture2D" uid="uid://p2nd6uuxapnb" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide03.png" id="19_1iv2b"]
+[ext_resource type="Texture2D" uid="uid://d25285tgkar55" path="res://Assets/Calvin/Calvin Halt/Calvin Halt05.png" id="19_ga3hf"]
+[ext_resource type="Texture2D" uid="uid://dl5288k0qigno" path="res://Assets/Calvin/Calvin Halt/Calvin Halt06.png" id="20_pl1l2"]
 [ext_resource type="Texture2D" uid="uid://q7c1y47v22fv" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide04.png" id="20_yp2xm"]
+[ext_resource type="Texture2D" uid="uid://c4lc3xoevypcd" path="res://Assets/Calvin/Calvin Halt/Calvin Halt07.png" id="21_c602l"]
 [ext_resource type="Texture2D" uid="uid://drcd5j1lucwr0" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide05.png" id="21_worx4"]
 [ext_resource type="Texture2D" uid="uid://ca2eaao3mfk0g" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide06.png" id="22_mh3wr"]
+[ext_resource type="Texture2D" uid="uid://dpvbjsrhnga6f" path="res://Assets/Calvin/Calvin Halt/Calvin Halt08.png" id="22_xgvq3"]
 [ext_resource type="Texture2D" uid="uid://c3f2cpk3u4s3w" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide07.png" id="23_45osj"]
+[ext_resource type="Texture2D" uid="uid://23nuj30x6a6h" path="res://Assets/Calvin/Calvin Halt/Calvin Halt09.png" id="23_m1tox"]
 [ext_resource type="Texture2D" uid="uid://cfvo8r2vcqhkr" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide08.png" id="24_325i5"]
 [ext_resource type="Texture2D" uid="uid://dsye40350pxjd" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide09.png" id="25_nagxj"]
 [ext_resource type="Texture2D" uid="uid://bgn0lmub6wwae" path="res://Assets/Calvin/Calvin_Slide/Calvin_Slide10.png" id="26_qipdq"]
@@ -72,6 +82,41 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3mhqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ryfxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_np1qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_q7mbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fhkov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ga3hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pl1l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c602l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xgvq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_m1tox")
+}],
+"loop": false,
+"name": &"halt",
 "speed": 15.0
 }, {
 "frames": [{
@@ -386,6 +431,7 @@ texture_filter = 1
 position = Vector2(-26, -63)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tgqrp")
+animation = &"halt"
 autoplay = "default"
 
 [node name="StandingHitBox" type="Area2D" parent="Running"]
