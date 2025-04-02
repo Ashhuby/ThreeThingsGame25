@@ -1,17 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0j3smb5c4lrd"]
+[gd_scene load_steps=7 format=3 uid="uid://d0j3smb5c4lrd"]
 
 [ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_qxc8s"]
 [ext_resource type="Script" path="res://Script/Hazards/Objects/BaseHazard.cs" id="1_wutem"]
+[ext_resource type="Texture2D" uid="uid://bdf3k0j2rux7d" path="res://Icon.png" id="3_4lrgv"]
+[ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="4_r67f2"]
+[ext_resource type="Texture2D" uid="uid://p1cjvm8q4v41" path="res://Assets/Buttons/Buttons/Play.png" id="5_1y8m3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgjju"]
 size = Vector2(42, 42)
 
-[node name="BaseHazard" type="Node2D"]
+[node name="BaseHazard" type="Node2D" node_paths=PackedStringArray("TopMidHazardSprites", "BotHazardSprites")]
 position = Vector2(610, 336)
 script = ExtResource("1_wutem")
 Speed = -11.0
+TopMidHazardSprites = [NodePath("TopMidHazards/PaperAeroplane"), NodePath("TopMidHazards/Pizza")]
+BotHazardSprites = [NodePath("BottomHazards/StopSign")]
 
 [node name="HazardSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.382813, 0.382813)
 texture = ExtResource("1_qxc8s")
 
@@ -21,6 +27,23 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardHitBox"]
 shape = SubResource("RectangleShape2D_sgjju")
+
+[node name="TopMidHazards" type="Node2D" parent="."]
+
+[node name="PaperAeroplane" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture = ExtResource("3_4lrgv")
+
+[node name="Pizza" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture = ExtResource("4_r67f2")
+
+[node name="BottomHazards" type="Node2D" parent="."]
+
+[node name="StopSign" type="Sprite2D" parent="BottomHazards"]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_1y8m3")
 
 [connection signal="area_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_area_entered"]
 [connection signal="body_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_body_entered"]
