@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dafqpowex2btn"]
+[gd_scene load_steps=29 format=3 uid="uid://dafqpowex2btn"]
 
 [ext_resource type="Script" path="res://Script/Menus/MainMenu.cs" id="1_h26pm"]
 [ext_resource type="PackedScene" uid="uid://pyhub6ro3kcb" path="res://Scene/World/Tooty/sTooty.tscn" id="2_1tprr"]
@@ -8,18 +8,56 @@
 [ext_resource type="Texture2D" uid="uid://p1cjvm8q4v41" path="res://Assets/Buttons/Buttons/Play.png" id="3_l1no3"]
 [ext_resource type="Texture2D" uid="uid://dssrb1bdo3s46" path="res://Assets/Buttons/Buttons/Play Select.png" id="4_aso3a"]
 [ext_resource type="PackedScene" uid="uid://dl3mpme2yyayw" path="res://Scene/World/Tooty/sExitButton.tscn" id="4_ql5wx"]
+[ext_resource type="Texture2D" uid="uid://7nl1l6dbjfxi" path="res://Assets/Buttons/Hard Mode/Hard Mode00.png" id="5_e6sfk"]
 [ext_resource type="Texture2D" uid="uid://bthtswmmu060r" path="res://Assets/Buttons/Buttons/Info.png" id="5_ksxhg"]
 [ext_resource type="Texture2D" uid="uid://b7ofx6wj8gau0" path="res://Assets/Buttons/Buttons/Info Select.png" id="6_2ktr1"]
+[ext_resource type="Texture2D" uid="uid://cj0oe2ali1xqp" path="res://Assets/Buttons/Hard Mode/Hard Mode01.png" id="6_k65ue"]
+[ext_resource type="Texture2D" uid="uid://dd5ja6ysaosmg" path="res://Assets/Buttons/Hard Mode/Hard Mode02.png" id="7_8p0k0"]
 [ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="7_ejhlj"]
+[ext_resource type="Texture2D" uid="uid://cc1ydbg47oagq" path="res://Assets/Buttons/Hard Mode/Hard Mode03.png" id="8_6se44"]
 [ext_resource type="Texture2D" uid="uid://ddsuk3ntt3n3y" path="res://Assets/Buttons/Buttons/Exit Select.png" id="8_qfal4"]
+[ext_resource type="Texture2D" uid="uid://dvcqabunxtdra" path="res://Assets/Buttons/Hard Mode/Hard Mode04.png" id="9_e0b03"]
 [ext_resource type="Texture2D" uid="uid://bdf3k0j2rux7d" path="res://Icon.png" id="9_i46ic"]
+[ext_resource type="Texture2D" uid="uid://dfhko6j5yertc" path="res://Assets/Buttons/Hard Mode/Hard Mode05.png" id="10_vq53s"]
+[ext_resource type="Texture2D" uid="uid://k50c2akmxkgk" path="res://Assets/Buttons/Hard Mode/Hard Mode06.png" id="11_duh2n"]
+[ext_resource type="Texture2D" uid="uid://x6d7sgcx6kne" path="res://Assets/Buttons/Hard Mode/Hard Mode07.png" id="12_58bji"]
 [ext_resource type="AudioStream" uid="uid://bmjjhvgm38e6a" path="res://Audio/2017-01-25_-_Funktastic_-_David_Fesliyan.mp3" id="13_7sofx"]
+[ext_resource type="Texture2D" uid="uid://dk63bxqkd0o6r" path="res://Assets/Buttons/Hard Mode/Hard Mode08.png" id="13_i80to"]
+[ext_resource type="Texture2D" uid="uid://ocgonvvjagol" path="res://Assets/Buttons/Hard Mode/Hard Mode09.png" id="14_j10is"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widtt"]
 bg_color = Color(0.913725, 0.756863, 0.976471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj8cf"]
 bg_color = Color(0.227451, 0.266667, 0.4, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_k3s4v"]
+frames = 5
+speed_scale = 4.0
+frame_0/texture = ExtResource("5_e6sfk")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("6_k65ue")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("7_8p0k0")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("8_6se44")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("9_e0b03")
+frame_4/duration = 0.5
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ijwbi"]
+frames = 5
+speed_scale = 4.0
+frame_0/texture = ExtResource("10_vq53s")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("11_duh2n")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("12_58bji")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("13_i80to")
+frame_3/duration = 0.5
+frame_4/texture = ExtResource("14_j10is")
+frame_4/duration = 0.5
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("HowToPlay")]
 layout_mode = 3
@@ -88,14 +126,14 @@ offset_bottom = 89.0
 texture_normal = ExtResource("3_l1no3")
 texture_hover = ExtResource("4_aso3a")
 
-[node name="PlayHM" type="Button" parent="Buttons"]
+[node name="PlayHM" type="TextureButton" parent="Buttons"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = -9.0
-offset_right = 293.0
-offset_bottom = 68.0
-theme_override_font_sizes/font_size = 50
-text = "Hard"
+offset_left = 6.0
+offset_top = -109.0
+offset_right = 306.0
+offset_bottom = 91.0
+texture_normal = SubResource("AnimatedTexture_k3s4v")
+texture_hover = SubResource("AnimatedTexture_ijwbi")
 
 [node name="HowToPlay" type="TextureButton" parent="Buttons"]
 layout_mode = 0
