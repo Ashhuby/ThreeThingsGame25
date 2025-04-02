@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://og51nrpbf2cg"]
+
+[ext_resource type="Texture2D" uid="uid://c51iadp4ylf2j" path="res://Assets/Scrapper/Scrapper0.png" id="1_mxfb3"]
+[ext_resource type="Texture2D" uid="uid://rc5r56ijvba4" path="res://Assets/Scrapper/Scrapper1.png" id="2_y1vef"]
+[ext_resource type="Texture2D" uid="uid://bb1t10wk5vc0h" path="res://Assets/Scrapper/Scrapper2.png" id="3_w0pxa"]
+[ext_resource type="Texture2D" uid="uid://8885txfgdlng" path="res://Assets/Scrapper/Scrapper3.png" id="4_cun1i"]
+[ext_resource type="Texture2D" uid="uid://whlabclk378f" path="res://Assets/Scrapper/Scrapper4.png" id="5_r3i8v"]
+[ext_resource type="Texture2D" uid="uid://bwl2hrvk6uqy1" path="res://Assets/Scrapper/Scrapper5.png" id="6_f0dj1"]
+[ext_resource type="Texture2D" uid="uid://cxcb458f26k4s" path="res://Assets/Scrapper/Scrapper6.png" id="7_7vqkm"]
+[ext_resource type="Texture2D" uid="uid://72xoqtcpa85u" path="res://Assets/Scrapper/Scrapper7.png" id="8_owv6g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbpbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mxfb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y1vef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w0pxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cun1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3i8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f0dj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7vqkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_owv6g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hbpbf")
+autoplay = "default"
+frame_progress = 0.787033

@@ -115,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_m1tox")
 }],
-"loop": true,
+"loop": false,
 "name": &"halt",
 "speed": 15.0
 }, {
@@ -430,7 +430,6 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tgqrp")
 animation = &"halt"
 autoplay = "default"
-frame_progress = 0.923805
 
 [node name="StandingHitBox" type="Area2D" parent="Running"]
 
