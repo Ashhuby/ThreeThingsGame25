@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://qyel3mk7mm5q"]
+[gd_scene load_steps=61 format=3 uid="uid://qyel3mk7mm5q"]
 
 [ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_ywvpp"]
 [ext_resource type="Texture2D" uid="uid://debuio0uetcvk" path="res://Assets/Calvin/Calvin Running/Calvin Running00.png" id="2_xqdyw"]
@@ -539,3 +539,4 @@ stream = ExtResource("41_wf408")
 
 [node name="GlassBreakingSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("42_bibjf")
+volume_db = 15.0

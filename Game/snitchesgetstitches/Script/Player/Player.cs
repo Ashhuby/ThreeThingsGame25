@@ -220,7 +220,7 @@ public partial class Player : CharacterBody2D
 	public void PlayHomeworkSound()
 	{
 		if(invincible) return;
-		GetHomeworkSFX.Play();
+		GetHomeworkSFX.Play(0.3f);
 	}
 		
 }
