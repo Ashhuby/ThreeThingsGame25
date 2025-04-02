@@ -25,6 +25,7 @@ public partial class BaseCollecable : Node2D
 		if(area.GetParent().GetParent() is Player)
 		{
 			Player p = (Player)area.GetParent().GetParent();
+			p.PlayHomeworkSound();
 			try
 			{
 				Node2D path;
@@ -57,6 +58,7 @@ public partial class BaseCollecable : Node2D
 
 				EndlessGameManager egm = (EndlessGameManager)EMPath;
 				if(egm != null) egm.Endlessscore += 3;	// Adds 3 to score.
+
 			}
 			catch
 			{

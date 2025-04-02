@@ -35,6 +35,9 @@ public partial class Player : CharacterBody2D
 	[Export] AudioStreamPlayer2D jumpSFX;
 	[Export] AudioStreamPlayer2D crouchSFX;
 	[Export] AudioStreamPlayer2D runningSFX;
+	[Export] AudioStreamPlayer2D GetHitSFX;
+	[Export] AudioStreamPlayer2D GetHomeworkSFX;
+	[Export] AudioStreamPlayer2D GlassBreakSFX;
 	#endregion
 
 	public override void _Ready()
@@ -187,6 +190,7 @@ public partial class Player : CharacterBody2D
 	private void Die()
 	{
 		//QueueFree();
+		GlassBreakSFX.Play();
 		invincible = true;
 		GD.Print("Player has died");	
 		if(gameManager != null) gameManager.IsGameOver = true;
@@ -205,6 +209,16 @@ public partial class Player : CharacterBody2D
 	public void HideHearts()
 	{
 		heartContainer.Visible = false;
+	}
+	public void PlayHitSound()
+	{
+		if(invincible) return;
+		GetHitSFX.Play(0.2f);
+	}
+	public void PlayHomeworkSound()
+	{
+		if(invincible) return;
+		GetHomeworkSFX.Play();
 	}
 		
 }

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbbdkxiggp3rt"
+path="res://.godot/imported/Minecraft Glass Break - Sound Effect (HD).mp3-d203031cbd5cc0ceea4700e42cf2f59f.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Minecraft Glass Break - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Minecraft Glass Break - Sound Effect (HD).mp3-d203031cbd5cc0ceea4700e42cf2f59f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

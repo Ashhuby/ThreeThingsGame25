@@ -10,6 +10,7 @@ public partial class BaseHazard : Node2D
 	[Export] public Node2D[] TopMidHazardSprites;
 	[Export] public Node2D[] BotHazardSprites;
 
+
 	public override void _Ready()
 	{
 
@@ -69,10 +70,11 @@ public partial class BaseHazard : Node2D
 	{
 		if(area.GetParent().GetParent() is Player)
 		{
-			
 			//GD.Print("Player Hit");
 			Player p = (Player)area.GetParent().GetParent();
+			p.PlayHitSound();
 			p.PlayerTakesDamage(1);
+
 			if(!p.invincible)
 			{
 				QueueFree();
