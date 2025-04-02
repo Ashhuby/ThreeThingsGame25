@@ -29,6 +29,13 @@ public partial class Player : CharacterBody2D
 	[Export] HeartContainer heartContainer;
 	[Export]private AnimatedSprite2D calvin;
 	[Export]private AnimatedSprite2D slide;
+
+	#region SFX
+	[Export] AudioStreamPlayer2D jumpSFX;
+	[Export] AudioStreamPlayer2D crouchSFX;
+	[Export] AudioStreamPlayer2D runningSFX;
+	#endregion
+
 	public override void _Ready()
 	{
 		/*
@@ -48,11 +55,13 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		
+		runningSFX.Play();
 		if(CanMove)
 		{
 			if(Input.IsActionPressed("Crouch") && Position.Y == startingPostion.Y && !isCrouching)
 			{
+				runningSFX.Stop();
+				crouchSFX.Play();
 				Crouch();
 				isCrouching = true;
 			}
@@ -84,10 +93,12 @@ public partial class Player : CharacterBody2D
 			if(Input.IsActionJustPressed("Jump") && Position.Y == startingPostion.Y)
 			{
 				//GD.Print("Jumping");
-				
+				runningSFX.Stop();
+				jumpSFX.Play();
 				Stand();
 				velocity.Y = JumpStrength; // Ensure jump applies correctly
 				calvin.Play("jump");  // Plays the Jump Animation.
+
 			}
 
 			//Prevent player from falling below the starting position

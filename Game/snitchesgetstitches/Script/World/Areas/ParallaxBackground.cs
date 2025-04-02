@@ -2,7 +2,7 @@ using Godot;
 
 public partial class ParallaxBackground : Godot.ParallaxBackground
 {
-	[Export] public float ScrollSpeed = 350f;	//200
+	[Export] public float ScrollSpeed = 450f;	//200 //350
 
 	public override void _Process(double delta) // Change float to double
 	{

@@ -9,12 +9,15 @@ public partial class BaseHazard : Node2D
 	const float TargetFrameRate = 60f;
 	[Export] public Node2D[] TopMidHazardSprites;
 	[Export] public Node2D[] BotHazardSprites;
+
 	public override void _Ready()
 	{
+
+
 		AddToGroup("Hazards");
 		RandomNumberGenerator rng = new RandomNumberGenerator();
-		GD.Print(BotHazardSprites.Length);
-		GD.Print(TopMidHazardSprites.Length);
+		//GD.Print(BotHazardSprites.Length);
+		//GD.Print(TopMidHazardSprites.Length);
 
 		//Bot
 		if(originSpawnerIndex == 2)
@@ -25,7 +28,8 @@ public partial class BaseHazard : Node2D
 				if(i == BotSprite)
 				{
 					BotHazardSprites[i].Visible = true;
-					GD.Print(BotHazardSprites[i].Name);				}
+					//GD.Print(BotHazardSprites[i].Name);				
+				}
 				else
 				{
 					BotHazardSprites[i].Visible = false;
@@ -41,7 +45,7 @@ public partial class BaseHazard : Node2D
 				if(i == chosenSpriteIndex)
 				{
 					TopMidHazardSprites[i].Visible = true;
-					GD.Print(TopMidHazardSprites[1].Name);
+					//GD.Print(TopMidHazardSprites[1].Name);
 				}
 				else
 				{

@@ -359,7 +359,7 @@ _data = {
 "WalkToTeacher": SubResource("Animation_iqdq1")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("RunningSprite", "StandingHitBox", "CrounchingSprite", "CrounchingHitBox", "animationPlayer", "SpeechBubble", "calvin", "slide")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("RunningSprite", "StandingHitBox", "CrounchingSprite", "CrounchingHitBox", "animationPlayer", "SpeechBubble", "calvin", "slide", "jumpSFX", "crouchSFX", "runningSFX")]
 z_index = 5
 position = Vector2(101, 542)
 script = ExtResource("1_ywvpp")
@@ -371,6 +371,9 @@ animationPlayer = NodePath("StateAnimationPlayer")
 SpeechBubble = NodePath("CalTellsTeacher")
 calvin = NodePath("Running/Calvin")
 slide = NodePath("Crouching/PlayerCrounchSprite")
+jumpSFX = NodePath("SFX/JumpSFX")
+crouchSFX = NodePath("SFX/SlideSFX")
+runningSFX = NodePath("SFX/RunningSFX")
 
 [node name="CharacterBodyCollidor" type="CollisionShape2D" parent="."]
 position = Vector2(1, 49)
@@ -419,3 +422,11 @@ libraries = {
 [node name="CalTellsTeacher" parent="." instance=ExtResource("3_l44ps")]
 visible = false
 position = Vector2(83, -154)
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="RunningSFX" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="SlideSFX" type="AudioStreamPlayer2D" parent="SFX"]

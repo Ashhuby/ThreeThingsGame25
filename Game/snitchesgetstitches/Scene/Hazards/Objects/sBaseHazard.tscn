@@ -1,10 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0j3smb5c4lrd"]
+[gd_scene load_steps=18 format=3 uid="uid://d0j3smb5c4lrd"]
 
 [ext_resource type="Texture2D" uid="uid://c71460kai08ha" path="res://icon.svg" id="1_qxc8s"]
 [ext_resource type="Script" path="res://Script/Hazards/Objects/BaseHazard.cs" id="1_wutem"]
-[ext_resource type="Texture2D" uid="uid://bdf3k0j2rux7d" path="res://Icon.png" id="3_4lrgv"]
-[ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="4_r67f2"]
-[ext_resource type="Texture2D" uid="uid://p1cjvm8q4v41" path="res://Assets/Buttons/Buttons/Play.png" id="5_1y8m3"]
+[ext_resource type="Texture2D" uid="uid://bsr2ywq8ygata" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards00.png" id="3_pgl5j"]
+[ext_resource type="Texture2D" uid="uid://d0sh742adxrfh" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards01.png" id="4_3pjeq"]
+[ext_resource type="Texture2D" uid="uid://nhmgtmtxhcd5" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards13.png" id="5_b44vx"]
+[ext_resource type="Texture2D" uid="uid://dydp5lwmxmjax" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards02.png" id="6_3js7m"]
+[ext_resource type="Texture2D" uid="uid://b616s1ttfey8n" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards03.png" id="7_ix63u"]
+[ext_resource type="Texture2D" uid="uid://bnsbmiwr286yi" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards06.png" id="8_ytgyh"]
+[ext_resource type="Texture2D" uid="uid://hmbs8gaq2l74" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards08.png" id="9_b3vfu"]
+[ext_resource type="Texture2D" uid="uid://chpvjvj4xflp7" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards09.png" id="10_04dad"]
+[ext_resource type="Texture2D" uid="uid://coqaaxdwqbk27" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards12.png" id="11_6c3jr"]
+[ext_resource type="Texture2D" uid="uid://c01xx11elfgnd" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards14.png" id="12_hm7hx"]
+[ext_resource type="Texture2D" uid="uid://dg7q7kncyf6ir" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards15.png" id="13_tifwj"]
+[ext_resource type="Texture2D" uid="uid://b88ffm0avs71v" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards07.png" id="14_3uxi7"]
+[ext_resource type="Texture2D" uid="uid://bhro4hsbr3xrv" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards04.png" id="15_jyld1"]
+[ext_resource type="Texture2D" uid="uid://vudcbwf81hr" path="res://Assets/SnitchesGetStitchesHazards/SnitchesGetStitchesHazards11.png" id="16_ifmce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgjju"]
 size = Vector2(42, 42)
@@ -13,8 +24,8 @@ size = Vector2(42, 42)
 position = Vector2(610, 336)
 script = ExtResource("1_wutem")
 Speed = -11.0
-TopMidHazardSprites = [NodePath("TopMidHazards/PaperAeroplane"), NodePath("TopMidHazards/Pizza")]
-BotHazardSprites = [NodePath("BottomHazards/StopSign")]
+TopMidHazardSprites = [NodePath("TopMidHazards/PaperAeroplane"), NodePath("TopMidHazards/PaperAeroplane2"), NodePath("TopMidHazards/Pizza"), NodePath("TopMidHazards/Lollypop"), NodePath("TopMidHazards/Pepsi"), NodePath("TopMidHazards/BasketBall"), NodePath("TopMidHazards/PoolBall"), NodePath("TopMidHazards/Cap"), NodePath("TopMidHazards/Dynamiete"), NodePath("TopMidHazards/Coffee"), NodePath("TopMidHazards/Fireball")]
+BotHazardSprites = [NodePath("BottomHazards/StopSign"), NodePath("BottomHazards/Banana"), NodePath("BottomHazards/Sock")]
 
 [node name="HazardSprite" type="Sprite2D" parent="."]
 visible = false
@@ -32,18 +43,89 @@ shape = SubResource("RectangleShape2D_sgjju")
 
 [node name="PaperAeroplane" type="Sprite2D" parent="TopMidHazards"]
 visible = false
-texture = ExtResource("3_4lrgv")
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("3_pgl5j")
+
+[node name="PaperAeroplane2" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("4_3pjeq")
 
 [node name="Pizza" type="Sprite2D" parent="TopMidHazards"]
 visible = false
-texture = ExtResource("4_r67f2")
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("5_b44vx")
+
+[node name="Lollypop" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("6_3js7m")
+
+[node name="Pepsi" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("7_ix63u")
+
+[node name="BasketBall" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("8_ytgyh")
+
+[node name="PoolBall" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("9_b3vfu")
+
+[node name="Cap" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("10_04dad")
+
+[node name="Dynamiete" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("11_6c3jr")
+
+[node name="Coffee" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("12_hm7hx")
+
+[node name="Fireball" type="Sprite2D" parent="TopMidHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("13_tifwj")
 
 [node name="BottomHazards" type="Node2D" parent="."]
 
 [node name="StopSign" type="Sprite2D" parent="BottomHazards"]
 visible = false
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_1y8m3")
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("14_3uxi7")
+
+[node name="Banana" type="Sprite2D" parent="BottomHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("15_jyld1")
+
+[node name="Sock" type="Sprite2D" parent="BottomHazards"]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("16_ifmce")
 
 [connection signal="area_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_area_entered"]
 [connection signal="body_entered" from="HazardHitBox" to="." method="_on_hazard_hit_box_body_entered"]
