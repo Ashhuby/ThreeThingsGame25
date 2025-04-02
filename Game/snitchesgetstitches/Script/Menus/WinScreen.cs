@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 public partial class WinScreen : Control
 {
@@ -35,12 +36,21 @@ public partial class WinScreen : Control
 
 	private void _on_replay_nm_pressed()
 	{
+		foreach (Node2D n in GetTree().GetNodesInGroup("Hazards"))
+		{
+			n.QueueFree();
+		}
 		GetTree().ChangeSceneToFile("res://Scene/World/sGame.tscn");
 		WinScreenHM = false;
 	}
 
 	private void _on_replay_hm_pressed()
 	{
+		foreach (Node2D n in GetTree().GetNodesInGroup("Hazards"))
+		{
+			n.QueueFree();
+		}
+		
 		GetTree().ChangeSceneToFile("res://Scene/World/sGame.tscn");
 		WinScreenHM = true;
 	}

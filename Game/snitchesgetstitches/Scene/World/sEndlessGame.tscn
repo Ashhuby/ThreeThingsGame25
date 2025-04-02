@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ludv2ibt1sny"]
+[gd_scene load_steps=20 format=3 uid="uid://ludv2ibt1sny"]
 
 [ext_resource type="Script" path="res://Script/World/Areas/ParallaxBackground.cs" id="1_flgjn"]
 [ext_resource type="PackedScene" uid="uid://ccqynjj7jgkra" path="res://Scene/Hazards/Spawner/sObjectSpawner.tscn" id="1_w8mho"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bagq381rthodt" path="res://Scene/Menus/sWinScreen.tscn" id="7_l76wq"]
 [ext_resource type="PackedScene" uid="uid://ddjrwa6emmp5o" path="res://Scene/World/WinState/sTeacherWinState.tscn" id="8_g2d2w"]
 [ext_resource type="PackedScene" uid="uid://dh0dxsvm1eue6" path="res://Scene/World/UI/GameTimer.tscn" id="9_igd54"]
+[ext_resource type="AudioStream" uid="uid://050nt5s2n81a" path="res://Audio/2023-05-15_-_Chicken_Chase_-_www.FesliyanStudios.com.mp3" id="13_yrsro"]
+[ext_resource type="AudioStream" uid="uid://d23xuhf8ity5g" path="res://Audio/SFX/record-zip-87715.mp3" id="14_dr2l8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01q13"]
 bg_color = Color(0.619117, 0.589363, 1, 1)
@@ -97,9 +99,9 @@ offset_top = 12.0
 offset_right = 67.0
 offset_bottom = 116.0
 
-[node name="EndlessGameManager" parent="." node_paths=PackedStringArray("EndlessscoreLabel", "EndlesshealthLabel", "Endlessplayer", "EndlessgameOverScreen", "EndlesswinScreen", "EndlessobjectSpawner", "EndlessgameTimer") instance=ExtResource("4_tel6m")]
+[node name="EndlessGameManager" parent="." node_paths=PackedStringArray("EndlessscoreLabel", "EndlesshealthLabel", "Endlessplayer", "EndlessgameOverScreen", "EndlesswinScreen", "EndlessobjectSpawner", "EndlessgameTimer", "EndlessMusic", "EndlessOverSFX") instance=ExtResource("4_tel6m")]
 script = ExtResource("5_mfecy")
-EndLessGameManagerHardMode = false
+EndLessGameManagerHardMode = true
 EndlessscoreLabel = NodePath("Score")
 EndlesshealthLabel = NodePath("Health")
 Endlessplayer = NodePath("../Player/Player")
@@ -107,6 +109,8 @@ EndlessgameOverScreen = NodePath("../Menus/GameOverScreen")
 EndlesswinScreen = NodePath("../Menus/WinScreen")
 EndlessobjectSpawner = NodePath("../Spawner/ObjectSpawner")
 EndlessgameTimer = NodePath("../GameTimer")
+EndlessMusic = NodePath("../EndlessMusic")
+EndlessOverSFX = NodePath("../GameOverSound")
 
 [node name="WinProgress" parent="EndlessGameManager" instance=ExtResource("5_a5sex")]
 visible = false
@@ -151,6 +155,14 @@ position = Vector2(1056, 388)
 [node name="TeacherWinState" parent="WinState" instance=ExtResource("8_g2d2w")]
 
 [node name="GameTimer" parent="." instance=ExtResource("9_igd54")]
+
+[node name="EndlessMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_yrsro")
+autoplay = true
+parameters/looping = true
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_dr2l8")
 
 [connection signal="area_entered" from="EndlessGameManager/SuccessfulAvoidanceArea" to="EndlessGameManager" method="endlessOnEtner"]
 

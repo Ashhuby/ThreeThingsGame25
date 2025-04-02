@@ -8,6 +8,7 @@ public partial class BaseHazard : Node2D
 	const float TargetFrameRate = 60f;
 	public override void _Ready()
 	{
+		AddToGroup("Hazards");
 	}
 
 	public override void _Process(double delta)

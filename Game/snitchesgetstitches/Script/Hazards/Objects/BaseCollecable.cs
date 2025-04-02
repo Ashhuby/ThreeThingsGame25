@@ -11,6 +11,7 @@ public partial class BaseCollecable : Node2D
 	
 	public override void _Ready()
 	{
+		AddToGroup("Hazards");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

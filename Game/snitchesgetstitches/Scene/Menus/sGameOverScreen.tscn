@@ -89,7 +89,5 @@ offset_bottom = 192.0
 texture_normal = ExtResource("4_bq07p")
 texture_hover = ExtResource("5_duydm")
 
-[node name="TextureButton" type="TextureButton" parent="Blur/Buttons"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[connection signal="pressed" from="Blur/Buttons/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="Blur/Buttons/Exit" to="." method="_on_exit_pressed"]

@@ -12,10 +12,13 @@ public partial class EndlessGameManager : Node2D
 	[Export] WinScreen EndlesswinScreen;
 	[Export] ObjectSpawner EndlessobjectSpawner;
 	[Export] GameTimer EndlessgameTimer;
+	[Export] AudioStreamPlayer2D EndlessMusic;
+	[Export] AudioStreamPlayer2D EndlessOverSFX;
 	public int Endlessscore = 0;
 	public int Endlesshealth = 0;
 	public bool EndlessIsGameOver = false;
 	public bool EndlessIsGameWon = false;
+	bool EndlessGameHasEnded = false;
 	
 
 	public override void _Ready()
@@ -40,11 +43,16 @@ public partial class EndlessGameManager : Node2D
 		EndlessscoreLabel.Text = "Score: " + Endlessscore;
 		EndlesshealthLabel.Text = "Health: " + Endlesshealth;
 
+
 		if(EndlessIsGameOver)
 		{
-			EndlessGameOver();
-		}		
-		
+			if(!EndlessGameHasEnded)
+			{
+				EndlessGameOver();
+				EndlessGameHasEnded = true;
+			}
+		}
+
 	}
 
 	private void endlessOnEtner(Area2D area)
@@ -74,7 +82,12 @@ public partial class EndlessGameManager : Node2D
 		MainMenu.HM = false;	//Reset HardMode to false
 		WinScreen.WinScreenHM = false;	//Reset HardMode to false
 
-		
+		//AUDIO
+		if(!EndlessOverSFX.Playing)
+		{
+			EndlessOverSFX.Play();
+		}
+		EndlessMusic.Stop();
 
 	}
 		
