@@ -1,6 +1,9 @@
 using Godot;
 using GodotPlugins.Game;
 using System;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 public partial class GameManager : Node2D
 {
@@ -109,8 +112,8 @@ public partial class GameManager : Node2D
 			// Walk player to teacher
 			if(!walkingtoteacher)
 			{
-				player.WalkTeacherAnimation();
-				walkingtoteacher = true;
+				walkingtoteacher = true; // Set the flag to prevent multiple calls
+            	_ = teacherWalk(); // Fire and forget the async method
 			}
 
 			// Show Win Screen
@@ -171,6 +174,19 @@ public partial class GameManager : Node2D
 		Music.Stop();
 		
 
+	}
+
+	public async Task teacherWalk()
+	{
+		
+
+		// Await the WalkTeacherAnimation method
+		await player.WalkTeacherAnimation();
+
+		// Code here will execute only after WalkTeacherAnimation completes
+		Console.WriteLine("Animation completed!");
+
+		// ...existing code...
 	}
 		
 }
