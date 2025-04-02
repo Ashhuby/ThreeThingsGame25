@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" path="res://Script/Menus/GameOverScreen.cs" id="1_sssn7"]
 [ext_resource type="Texture2D" uid="uid://401shtaovxdn" path="res://Assets/Buttons/Buttons/Retry.png" id="2_akl2k"]
+[ext_resource type="Texture2D" uid="uid://lanjnw47ip8e" path="res://Assets/UI Stuff/FAILED.png" id="2_hvarl"]
 [ext_resource type="Texture2D" uid="uid://d3tg1qkg62w1v" path="res://Assets/Buttons/Buttons/Retry Select.png" id="3_32qfq"]
 [ext_resource type="Texture2D" uid="uid://bu6tly8mlbvsj" path="res://Assets/Buttons/Buttons/Exit.png" id="4_bq07p"]
 [ext_resource type="Texture2D" uid="uid://ddsuk3ntt3n3y" path="res://Assets/Buttons/Buttons/Exit Select.png" id="5_duydm"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7i7xf"]
-font_size = 256
 
 [node name="GameOverScreen" type="Control" node_paths=PackedStringArray("Score")]
 layout_mode = 3
@@ -24,22 +22,9 @@ layout_mode = 0
 offset_right = 1166.0
 offset_bottom = 665.0
 
-[node name="GameOver" type="Label" parent="Blur"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -358.0
-offset_top = -168.5
-offset_right = 1032.0
-offset_bottom = 180.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-text = "Game Over"
-label_settings = SubResource("LabelSettings_7i7xf")
+[node name="GameOver" type="Sprite2D" parent="Blur"]
+position = Vector2(557, 200)
+texture = ExtResource("2_hvarl")
 
 [node name="Score" type="Label" parent="Blur"]
 layout_mode = 1
