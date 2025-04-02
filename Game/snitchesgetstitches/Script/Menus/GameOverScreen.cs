@@ -19,4 +19,16 @@ public partial class GameOverScreen : Control
 	{
 		Score.Text = "Score: " + score;
 	}
+	private void _on_replay_pressed()
+	{
+		foreach (Node2D n in GetTree().GetNodesInGroup("Hazards"))
+		{
+			n.QueueFree();
+		}
+		GetTree().ChangeSceneToFile("res://Scene/World/sGame.tscn");
+	}
+	private void _on_exit_pressed()
+	{
+		GetTree().ChangeSceneToFile("res://Scene/Menus/sMainMenu.tscn");
+	}
 }

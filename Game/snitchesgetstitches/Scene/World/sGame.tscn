@@ -26,7 +26,7 @@ bg_color = Color(0.572062, 0.632363, 0.378464, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57ggf"]
 bg_color = Color(0.326981, 0.365932, 0.192136, 1)
 
-[node name="Game" type="Node2D" groups=["Hazards"]]
+[node name="Game" type="Node2D"]
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_hhpnf")
