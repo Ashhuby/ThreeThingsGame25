@@ -539,3 +539,4 @@ stream = ExtResource("49_vb2bu")
 
 [node name="GlassBreakingSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("42_bibjf")
+volume_db = 15.0

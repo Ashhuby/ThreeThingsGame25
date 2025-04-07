@@ -216,12 +216,14 @@ public partial class Player : CharacterBody2D
 	public void PlayHitSound()
 	{
 		if(invincible) return;
+		GetHitSFX.PitchScale = (float)GD.RandRange(0.8f,1.2f);
 		GetHitSFX.Play(0.2f);
 	}
 	public void PlayHomeworkSound()
 	{
 		if(invincible) return;
-		GetHomeworkSFX.Play();
+		GetHomeworkSFX.PitchScale = (float)GD.RandRange(0.9f,1.4f);
+		GetHomeworkSFX.Play(0.6f);
 	}
 		
 }
