@@ -132,6 +132,7 @@ public partial class Player : CharacterBody2D
 	}	
 	private void Crouch()
 	{
+		CrounchingHitBox.Monitorable = true;
 		
 		if(PlayerHardMode)
 		{
